@@ -64,13 +64,13 @@ Bootcamp is a more robust example. In this example, we are using the platforms s
 --------------------------------------------------------------------------
 
 ##First Step:
-* Copy either the cocoonInAppPurchase.js or the cocoonInAppPurchase.min.js file (they should be right next to this one right now) into your project directory. We recommend that you save the files under a plugin directory that lives inside of your project directory so that you can easily manage all of the plugins but that is not required.
+Copy either the cocoonInAppPurchase.js or the cocoonInAppPurchase.min.js file (they should be right next to this one right now) into your project directory. We recommend that you save the files under a plugin directory that lives inside of your project directory so that you can easily manage all of the plugins but that is not required.
 
-* Now copy across the CocoonJSExtensions folder also. You can either put the Extensions folder inside the plugins folder where we put the cocoonInAppPurchase or you can put it next to the plugin directory as the files inside of CocoonJSExtensions are not exclusive to this plugin.  
+Now copy across the CocoonJSExtensions folder also. You can either put the Extensions folder inside the plugins folder where we put the cocoonInAppPurchase or you can put it next to the plugin directory as the files inside of CocoonJSExtensions are not exclusive to this plugin.  
 
 
 ##Second Step:
-* Firstly link in all of the javascript files inside of the CocoonJSExtensions folder in the following order. To be safe include these above Kiwi and your own game code :)
+Firstly link in all of the javascript files inside of the CocoonJSExtensions folder in the following order. To be safe include these above Kiwi and your own game code :)
 
 - CocoonJS.js
 - CocoonJS_Ad.js
@@ -78,11 +78,11 @@ Bootcamp is a more robust example. In this example, we are using the platforms s
 - CocoonJS_App_ForCocoonJS.js
 - CocoonJS_Store.js
 
-* Link in the JavaScript file (cocoonInAppPurchase.js or the min version of the file) into your HTML file. Make sure you link it in underneath the link to the main Kiwi.js file AND underneath all of the Cocoon files.
+Link in the JavaScript file (cocoonInAppPurchase.js or the min version of the file) into your HTML file. Make sure you link it in underneath the link to the main Kiwi.js file AND underneath all of the Cocoon files.
 
 
 ##Third: 
-* Now that you have linked in the plugin, the next step is to tell the game to use this plugin. To do so, when you create a new Kiwi.Game you need to pass 'CocoonInAppPurchase' the confiration object's plugins item. You can see an example of the code below.
+Now that you have linked in the plugin, the next step is to tell the game to use this plugin. To do so, when you create a new Kiwi.Game you need to pass 'CocoonInAppPurchase' the confiration object's plugins item. You can see an example of the code below.
 
 	var game = new Kiwi.Game('domElement', 'GameName', 'State', { plugins: ["CocoonInAppPurchase"]});
 
@@ -90,7 +90,7 @@ Bootcamp is a more robust example. In this example, we are using the platforms s
 
 
 ##Lastly:
-* Now that you have successfully include the plugin you can start using it. You can access the 'inAppPurchase' through the game object.
+Now that you have successfully include the plugin you can start using it. You can access the 'inAppPurchase' through the game object.
 
 
 ##Take Note!

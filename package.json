@@ -1,18 +1,20 @@
 {
-    "name": "CocoonInAppPurchase",
+    "name": "InAppPurchase",
     "version": "1.0.0",
     "description": "Provides better intergration of the Cocoon inAppPurchase extension into Kiwi as well as providing documentation, examples and tutorials on the use of it.",
-    "author": "Gamelab",
-    "logo": "xx",
+    "author": {
+        "name": "Gamelab",
+        "email": ""
+        },
 
     "homepage": "http://kiwijs.org/",
-    "bugs": "xx",
-    "license": "xx",
-    "licenseUrl": "xx",
+    "bugs": "",
+    "license": "MIT",
+    "licenseUrl": "",
 
     "repository": {
         "type": "git",
-        "url": "xx"
+        "url": ""
     },
 
     "main": "src/cocoonInAppPurchase-1.0.0.js",

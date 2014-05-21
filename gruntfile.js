@@ -81,11 +81,6 @@ module.exports = function(grunt) {
  
     copy: {
 
-        whole: {
-          src: ['src/**', 'examples/**', 'lib/**', 'docs/**', 'README.md'],
-          dest: 'dist/<%= pkg.name %>-<%= pkg.version %>/'
-        },
-
         intro: {
           expand: true,
           flatten: true,
@@ -122,7 +117,7 @@ module.exports = function(grunt) {
   
   
   grunt.registerTask("default", ["uglify:build"]);
-  grunt.registerTask("full", ["uglify:build","yuidoc:compile","copy:whole"]);
+  grunt.registerTask("full", ["uglify:build","yuidoc:compile"]);
 
 
   grunt.registerTask('intro', ["copy:intro", "uglify:intro" ]);
