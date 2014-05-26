@@ -578,7 +578,7 @@ var gameOptions = {
 	height: 512,
 	deviceTarget: Kiwi.TARGET_COCOON,
 	scaleType: Kiwi.Stage.SCALE_FIT,
-	plugins:['SaveGame', 'CocoonInAppPurchase', 'BitmapText']
+	plugins:['SaveGame', 'InAppPurchase', 'BitmapText']
 }
 
 

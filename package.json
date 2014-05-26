@@ -17,7 +17,7 @@
         "url": ""
     },
 
-    "main": "src/cocoonInAppPurchase-1.0.0.js",
+    "main": "src/InAppPurchase-1.0.0.js",
 
     "dependencies": {},
     "devDependencies": {

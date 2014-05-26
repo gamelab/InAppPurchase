@@ -399,7 +399,7 @@ sierraShop.purchaseFailed = function(error) {
 sierraShop.purchaseComplete = function(purchase) {
 
 	//Display a THANKS message if the purchase was successful
-	if(purchase.purchaseState == Kiwi.Plugins.CocoonInAppPurchase.InAppPurchase.PURCHASED) {
+	if(purchase.purchaseState == Kiwi.Plugins.InAppPurchase.InAppPurchase.PURCHASED) {
 		alert('Thanks for purchasing ' + this.game.inAppPurchase.getProductById(purchase.productID).title);
 		
 		//The rest of your CUSTOM CODE for dealing with purchases would go here.
@@ -417,7 +417,7 @@ var gameOptions = {
 	width: 950, 
 	height: 640,
 	deviceTarget: Kiwi.TARGET_COCOON,
-	plugins: [ 'BitmapText', 'CocoonInAppPurchase'], 
+	plugins: [ 'BitmapText', 'InAppPurchase'], 
 	scaleType: Kiwi.Stage.SCALE_FIT
 }
 

@@ -1,18 +1,18 @@
 {
     "project": {
-        "name": "CocoonInAppPurchase",
+        "name": "InAppPurchase",
         "description": "Provides better intergration of the Cocoon inAppPurchase extension into Kiwi as well as providing documentation, examples and tutorials on the use of it.",
         "version": "1.0.0",
         "url": "http://kiwijs.org/"
     },
     "files": {
-        "src\\cocoonInAppPurchase-1.0.0.js": {
-            "name": "src\\cocoonInAppPurchase-1.0.0.js",
+        "src\\inAppPurchase-1.0.0.js": {
+            "name": "src\\inAppPurchase-1.0.0.js",
             "modules": {
                 "Plugins": 1
             },
             "classes": {
-                "Kiwi.Plugins.CocoonInAppPurchase": 1
+                "Kiwi.Plugins.InAppPurchase": 1
             },
             "fors": {},
             "namespaces": {
@@ -27,20 +27,20 @@
                 "Plugins": 1
             },
             "classes": {
-                "Kiwi.Plugins.CocoonInAppPurchase": 1
+                "Kiwi.Plugins.InAppPurchase": 1
             },
             "fors": {},
             "namespaces": {
                 "Kiwi.Plugins": 1
             },
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1
         },
         "Plugins": {
             "name": "Plugins",
             "submodules": {},
             "classes": {
-                "Kiwi.Plugins.CocoonInAppPurchase": 1
+                "Kiwi.Plugins.InAppPurchase": 1
             },
             "fors": {},
             "is_submodule": 1,
@@ -49,15 +49,15 @@
             },
             "module": "Kiwi",
             "namespace": "",
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1,
-            "description": "The CocoonInAppPurchase plugin is designed to help make intergrating in-app purchase's using CocoonJS with Kiwi easier. \nWhat happens is that when a game that use's this plugin is created, a new manager is added to the 'game' root which is a instanted version of this class, under the property 'inAppPurchase'. You can then access that object to make a purchase or fetch purchases from the store."
+            "description": "The InAppPurchase plugin is designed to help make intergrating in-app purchase's using CocoonJS with Kiwi easier. \nWhat happens is that when a game that use's this plugin is created, a new manager is added to the 'game' root which is a instanted version of this class, under the property 'inAppPurchase'. You can then access that object to make a purchase or fetch purchases from the store."
         }
     },
     "classes": {
-        "Kiwi.Plugins.CocoonInAppPurchase": {
-            "name": "Kiwi.Plugins.CocoonInAppPurchase",
-            "shortname": "Kiwi.Plugins.CocoonInAppPurchase",
+        "Kiwi.Plugins.InAppPurchase": {
+            "name": "Kiwi.Plugins.InAppPurchase",
+            "shortname": "Kiwi.Plugins.InAppPurchase",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -66,14 +66,14 @@
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins",
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1,
-            "description": "The CocoonInAppPurchase plugin is designed to help make intergrating in-app purchase's using CocoonJS with Kiwi easier. \nWhat happens is that when a game that use's this plugin is created, a new manager is added to the 'game' root which is a instanted version of this class, under the property 'inAppPurchase'. You can then access that object to make a purchase or fetch purchases from the store."
+            "description": "The InAppPurchase plugin is designed to help make intergrating in-app purchase's using CocoonJS with Kiwi easier. \nWhat happens is that when a game that use's this plugin is created, a new manager is added to the 'game' root which is a instanted version of this class, under the property 'inAppPurchase'. You can then access that object to make a purchase or fetch purchases from the store."
         }
     },
     "classitems": [
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 23,
             "description": "The create method is executed automatically by the PluginManager when it is included in a game. Internal Use ONLY.",
             "itemtype": "method",
@@ -87,13 +87,13 @@
             ],
             "access": "protected",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 40,
             "description": "The game this belongs to.",
             "itemtype": "property",
@@ -101,13 +101,13 @@
             "type": "Game",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 48,
             "description": "Indicates if the store is accessible and can be used or not.",
             "itemtype": "property",
@@ -115,26 +115,26 @@
             "type": "boolean",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 59,
             "description": "Executed when the game's DOM has been loaded and all assets have been set-up. Internal Use only.",
             "itemtype": "method",
             "name": "boot",
             "access": "protected",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 66,
             "description": "Your unique Identifier for your app. Not required. \nGenerally follows the convetion of com.yourcompany.appname",
             "itemtype": "property",
@@ -142,13 +142,13 @@
             "type": "string",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 75,
             "description": "The API version of the app that is being developed. Not required.",
             "itemtype": "property",
@@ -156,13 +156,13 @@
             "type": "string",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 83,
             "description": "The type of store that is being used.",
             "itemtype": "property",
@@ -170,13 +170,13 @@
             "type": "number",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 91,
             "description": "An array holding all of the products that are avaiable on the store.",
             "itemtype": "property",
@@ -184,13 +184,13 @@
             "type": "Array",
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 99,
             "description": "An array consisting of all of the purchases that have been saved.",
             "itemtype": "property",
@@ -198,13 +198,13 @@
             "type": "Array",
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 107,
             "description": "If the purchase information for products should be automatically saved into the local database or not. \nDefaults to true",
             "itemtype": "property",
@@ -213,13 +213,13 @@
             "default": "true",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 117,
             "description": "If the products once fetched from the store, should be automatically added to the localdatabase.",
             "itemtype": "property",
@@ -228,13 +228,13 @@
             "default": "false",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 126,
             "description": "If when a purchase is made, and the product purchased is a CONSUMABLE, whether it should be automatically consumed to be ready for future purchase.",
             "itemtype": "property",
@@ -243,13 +243,13 @@
             "default": "false",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 135,
             "description": "If the in app purchasing should be managed via the Cocoon Cloud compling service or not.",
             "itemtype": "property",
@@ -257,13 +257,13 @@
             "type": "boolean",
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 143,
             "description": "If the app is launching in a 'sandbox' mode.",
             "itemtype": "property",
@@ -271,13 +271,13 @@
             "type": "boolean",
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 165,
             "description": "Returns the type of store that is being/will be used.",
             "itemtype": "method",
@@ -288,13 +288,13 @@
             },
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 177,
             "description": "Initalises the store (if it is avaiable) and starts the retrieval of products and purchases.",
             "itemtype": "method",
@@ -319,39 +319,39 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 223,
             "description": "Updates the purchases array with all of the purchase information stored in the local database. Internal use only.",
             "itemtype": "method",
             "name": "_retrievePurchases",
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 243,
             "description": "Updates the products array with all of the product information store in the local database. Internal use only.",
             "itemtype": "method",
             "name": "_retrieveProducts",
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 261,
             "description": "Retrieves a product by a productId that is passed. Doesn't update the local database of products first.",
             "itemtype": "method",
@@ -369,13 +369,13 @@
             },
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 282,
             "description": "The products that are currently avaiable.",
             "itemtype": "property",
@@ -383,13 +383,13 @@
             "type": "Array",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 298,
             "description": "The purchase's that the user has made.",
             "itemtype": "property",
@@ -397,13 +397,13 @@
             "type": "Array",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 314,
             "description": "Retreives product information off of the Store based on an array of productIds (in a string format) that are passed.",
             "itemtype": "method",
@@ -417,13 +417,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 330,
             "description": "Creates a new ProductInformation object and then adds it to the local database based on the parameters that are passed.",
             "itemtype": "method",
@@ -467,13 +467,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 352,
             "description": "Adds a ProductInfo object to the local database.",
             "itemtype": "method",
@@ -487,13 +487,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 374,
             "description": "Removes a product from the local database based on the parameters that are passed.",
             "itemtype": "method",
@@ -507,13 +507,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 391,
             "description": "Request a product purchase given it's product id.",
             "itemtype": "method",
@@ -527,13 +527,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 409,
             "description": "Request a product purchase given it's product id showing a modal progress dialog.",
             "itemtype": "method",
@@ -547,13 +547,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 425,
             "description": "Request the purchase of a product given it's product id showing a dialog with a preview of the product (title and description).",
             "itemtype": "method",
@@ -567,13 +567,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 441,
             "description": "Returns a boolean indicating whether or not a product has been purchased or not.",
             "itemtype": "method",
@@ -591,13 +591,13 @@
             },
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 456,
             "description": "Adds a purchase to the local database that stores purchase information.",
             "itemtype": "method",
@@ -611,13 +611,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 472,
             "description": "Removes a purchase from the local database which stores the purchase information.",
             "itemtype": "method",
@@ -635,13 +635,13 @@
             },
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 489,
             "description": "\"Consumes\" a purchase, allowing it to be purchased again. Currently only used for the Play Store. \nUse to prevent 'You already own this product' errors.\nMake sure when you use this method you also add event listeners to the onConsumeStarted, onConsumeCompleted and onConsumeFailed methods.\nNote: When a purchase is consumed that product can no longer be restored.",
             "itemtype": "method",
@@ -655,39 +655,39 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 509,
             "description": "Restoring the purchases is the way of returning purchased items information from the platform Store.\nOnly certain purchases can be restored. See http://wiki.ludei.com/cocoonjs:extensions:store or you platform store for more detail.",
             "itemtype": "method",
             "name": "restorePurchases",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 524,
             "description": "Restores all of the purchases through the platforms market with a modal dialog.",
             "itemtype": "method",
             "name": "restorePurchasesModal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 537,
             "description": "Used to finish the a purchase transaction. Tells the store that you can successfully downloaded all of the required assets/e.t.c needed.",
             "itemtype": "method",
@@ -705,13 +705,13 @@
             },
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 565,
             "description": "The type of object that this is.",
             "itemtype": "method",
@@ -722,104 +722,104 @@
             },
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 578,
             "description": "Initalises the callbacks that the users have access to through this plugin.",
             "itemtype": "method",
             "name": "_createCallbacks",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 585,
             "itemtype": "property",
             "name": "onFetchStarted",
             "type": "Signal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 592,
             "itemtype": "property",
             "name": "onFetchFailed",
             "type": "Signal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 599,
             "itemtype": "property",
             "name": "onFetchComplete",
             "type": "Signal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 606,
             "itemtype": "property",
             "name": "onRestoreStarted",
             "type": "Signal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 613,
             "itemtype": "property",
             "name": "onRestoreComplete",
             "type": "Signal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 620,
             "itemtype": "property",
             "name": "onRestoreFailedCallback",
             "type": "Signal",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 627,
             "itemtype": "property",
             "name": "onPurchaseStartedCallback",
@@ -827,13 +827,13 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 635,
             "itemtype": "property",
             "name": "onPurchaseFailedCallback",
@@ -841,13 +841,13 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 643,
             "itemtype": "property",
             "name": "onPurchaseVertificationCallback",
@@ -855,13 +855,13 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 651,
             "itemtype": "property",
             "name": "onPurchaseCompleteCallback",
@@ -869,13 +869,13 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 659,
             "itemtype": "property",
             "name": "onConsumeStartedCallback",
@@ -883,13 +883,13 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 667,
             "itemtype": "property",
             "name": "onConsumeCompleteCallback",
@@ -897,13 +897,13 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 675,
             "itemtype": "property",
             "name": "onConsumeFailedCallback",
@@ -911,26 +911,26 @@
             "default": "null",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 686,
             "description": "Adds event listeners to the cocoon store. This is applyed during the init method of the app and is a internal method only.",
             "itemtype": "method",
             "name": "_startEvents",
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 782,
             "description": "If the user is not using Cocoons Extentions to managed the purchase verification then they are going to have to customise what happens \nwith this callback.",
             "itemtype": "method",
@@ -949,13 +949,13 @@
             ],
             "access": "private",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 840,
             "description": "A consumable product.",
             "itemtype": "property",
@@ -964,13 +964,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 855,
             "description": "A non-cunsumable product.",
             "itemtype": "property",
@@ -979,13 +979,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 870,
             "description": "An auto-renewable subscription. See platform documentation for further information.",
             "itemtype": "property",
@@ -994,13 +994,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 885,
             "description": "A free subscription. See platform documentation for further information.",
             "itemtype": "property",
@@ -1009,13 +1009,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 900,
             "description": "A non-renewable subscription. See platform documentation for further information.",
             "itemtype": "property",
@@ -1024,13 +1024,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 918,
             "description": "The number related to the app store.",
             "itemtype": "property",
@@ -1039,13 +1039,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 935,
             "description": "The number related to the app store.",
             "itemtype": "property",
@@ -1054,13 +1054,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 952,
             "description": "The number related to the app store.",
             "itemtype": "property",
@@ -1069,13 +1069,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 969,
             "description": "The number related to the app store.",
             "itemtype": "property",
@@ -1084,13 +1084,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 986,
             "description": "The number related to the app store.",
             "itemtype": "property",
@@ -1099,13 +1099,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1003,
             "description": "The number related to the app store.",
             "itemtype": "property",
@@ -1114,13 +1114,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1021,
             "description": "The number related to a purchaseState that is successful.",
             "itemtype": "property",
@@ -1129,13 +1129,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1038,
             "description": "The number related to a purchaseState that is canceled.",
             "itemtype": "property",
@@ -1144,13 +1144,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1055,
             "description": "The number related to a purchaseState that has been refunded.",
             "itemtype": "property",
@@ -1159,13 +1159,13 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1072,
             "description": "The number related to a purchaseState that has expired. Used mainly on subscription based purchases.",
             "itemtype": "property",
@@ -1174,22 +1174,22 @@
             "static": 1,
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1090,
             "description": "The following functions are for testing purpose's only and will not work in a production enviroment.",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1096,
             "description": "Simulates the expiration of a purchase for the transactionId you pass.",
             "itemtype": "method",
@@ -1202,13 +1202,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1110,
             "description": "Simulates the cancelation of a purchase for the transactionId you pass.",
             "itemtype": "method",
@@ -1221,13 +1221,13 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
         },
         {
-            "file": "src\\cocoonInAppPurchase-1.0.0.js",
+            "file": "src\\inAppPurchase-1.0.0.js",
             "line": 1124,
             "description": "Simulates the refunding of a purchase, based on the transactionId you pass.",
             "itemtype": "method",
@@ -1240,7 +1240,7 @@
             ],
             "access": "public",
             "tagname": "",
-            "class": "Kiwi.Plugins.CocoonInAppPurchase",
+            "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
             "submodule": "Plugins",
             "namespace": "Kiwi.Plugins"
@@ -1249,67 +1249,67 @@
     "warnings": [
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:840"
+            "line": " src\\inAppPurchase-1.0.0.js:840"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:855"
+            "line": " src\\inAppPurchase-1.0.0.js:855"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:870"
+            "line": " src\\inAppPurchase-1.0.0.js:870"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:885"
+            "line": " src\\inAppPurchase-1.0.0.js:885"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:900"
+            "line": " src\\inAppPurchase-1.0.0.js:900"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:918"
+            "line": " src\\inAppPurchase-1.0.0.js:918"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:935"
+            "line": " src\\inAppPurchase-1.0.0.js:935"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:952"
+            "line": " src\\inAppPurchase-1.0.0.js:952"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:969"
+            "line": " src\\inAppPurchase-1.0.0.js:969"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:986"
+            "line": " src\\inAppPurchase-1.0.0.js:986"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:1003"
+            "line": " src\\inAppPurchase-1.0.0.js:1003"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:1021"
+            "line": " src\\inAppPurchase-1.0.0.js:1021"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:1038"
+            "line": " src\\inAppPurchase-1.0.0.js:1038"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:1055"
+            "line": " src\\inAppPurchase-1.0.0.js:1055"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:1072"
+            "line": " src\\inAppPurchase-1.0.0.js:1072"
         },
         {
             "message": "Missing item type\nThe following functions are for testing purpose's only and will not work in a production enviroment.",
-            "line": " src\\cocoonInAppPurchase-1.0.0.js:1090"
+            "line": " src\\inAppPurchase-1.0.0.js:1090"
         }
     ]
 }

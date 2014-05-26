@@ -260,7 +260,7 @@ introShop.purchaseComplete = function(purchase) {
 //The options that we are going to have for this game.
 var gameOptions = { 
 	deviceTarget: Kiwi.TARGET_COCOON,	
- 	plugins: [ 'CocoonInAppPurchase'],
+ 	plugins: [ 'InAppPurchase'],
  	scaleType: Kiwi.Stage.SCALE_FIT
  };
 

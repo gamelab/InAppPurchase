@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     uglify: {
         build: {
             files: {
-              'src/cocoonInAppPurchase-<%= pkg.version %>.min.js': ['<%= pkg.main %>']
+              'src/InAppPurchase-<%= pkg.version %>.min.js': ['<%= pkg.main %>']
             }
         },
 
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                 'lib/CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js',
                 'lib/CocoonJSExtensions/CocoonJS_Store.js',
                 'lib/kiwi.js',
-                'src/cocoonInAppPurchase-<%= pkg.version %>.js',
+                'src/InAppPurchase-<%= pkg.version %>.js',
                 'lib/plugins/bitmapText-1.1.js',
                 'examples/intro/main.js'
               ]
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                 'lib/CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js',
                 'lib/CocoonJSExtensions/CocoonJS_Store.js',
                 'lib/kiwi.js',
-                'src/cocoonInAppPurchase-<%= pkg.version %>.js',
+                'src/InAppPurchase-<%= pkg.version %>.js',
                 'examples/sierra/main.js'
               ]
             }
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
                 'lib/CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js',
                 'lib/CocoonJSExtensions/CocoonJS_Store.js',
                 'lib/kiwi.js',
-                'src/cocoonInAppPurchase-<%= pkg.version %>.js',
+                'src/InAppPurchase-<%= pkg.version %>.js',
                 'lib/plugins/bitmapText-1.1.js',
                 'lib/plugins/saveManager-1.0.1.js',
                 'examples/bootcamp/classes.js',
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
   
   
   grunt.registerTask("default", ["uglify:build"]);
-  grunt.registerTask("full", ["uglify:build","yuidoc:compile"]);
+  grunt.registerTask("full", ["uglify:build","yuidoc:compile", "copy:intro", "uglify:intro","copy:sierra", "uglify:sierra","copy:bootcamp", "uglify:bootcamp" ]);
 
 
   grunt.registerTask('intro', ["copy:intro", "uglify:intro" ]);
