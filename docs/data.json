@@ -74,7 +74,49 @@
     "classitems": [
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 23,
+            "line": 12,
+            "description": "The name of this plugin.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.InAppPurchase",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src\\inAppPurchase-1.0.0.js",
+            "line": 20,
+            "description": "The version of this plugin in semver (semantic versioning) format",
+            "itemtype": "property",
+            "name": "version",
+            "type": "String",
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.InAppPurchase",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src\\inAppPurchase-1.0.0.js",
+            "line": 28,
+            "description": "The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format",
+            "itemtype": "property",
+            "name": "minimumKiwiVersion",
+            "type": "String",
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.InAppPurchase",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src\\inAppPurchase-1.0.0.js",
+            "line": 44,
             "description": "The create method is executed automatically by the PluginManager when it is included in a game. Internal Use ONLY.",
             "itemtype": "method",
             "name": "create",
@@ -94,7 +136,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 40,
+            "line": 61,
             "description": "The game this belongs to.",
             "itemtype": "property",
             "name": "game",
@@ -108,7 +150,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 48,
+            "line": 69,
             "description": "Indicates if the store is accessible and can be used or not.",
             "itemtype": "property",
             "name": "available",
@@ -122,7 +164,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 59,
+            "line": 80,
             "description": "Executed when the game's DOM has been loaded and all assets have been set-up. Internal Use only.",
             "itemtype": "method",
             "name": "boot",
@@ -135,7 +177,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 66,
+            "line": 87,
             "description": "Your unique Identifier for your app. Not required. \nGenerally follows the convetion of com.yourcompany.appname",
             "itemtype": "property",
             "name": "bundleId",
@@ -149,7 +191,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 75,
+            "line": 96,
             "description": "The API version of the app that is being developed. Not required.",
             "itemtype": "property",
             "name": "apiVersion",
@@ -163,7 +205,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 83,
+            "line": 104,
             "description": "The type of store that is being used.",
             "itemtype": "property",
             "name": "storeType",
@@ -177,7 +219,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 91,
+            "line": 112,
             "description": "An array holding all of the products that are avaiable on the store.",
             "itemtype": "property",
             "name": "_products",
@@ -191,7 +233,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 99,
+            "line": 120,
             "description": "An array consisting of all of the purchases that have been saved.",
             "itemtype": "property",
             "name": "_purchases",
@@ -205,7 +247,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 107,
+            "line": 128,
             "description": "If the purchase information for products should be automatically saved into the local database or not. \nDefaults to true",
             "itemtype": "property",
             "name": "addPurchases",
@@ -220,7 +262,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 117,
+            "line": 138,
             "description": "If the products once fetched from the store, should be automatically added to the localdatabase.",
             "itemtype": "property",
             "name": "addProducts",
@@ -235,7 +277,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 126,
+            "line": 147,
             "description": "If when a purchase is made, and the product purchased is a CONSUMABLE, whether it should be automatically consumed to be ready for future purchase.",
             "itemtype": "property",
             "name": "autoConsume",
@@ -250,7 +292,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 135,
+            "line": 156,
             "description": "If the in app purchasing should be managed via the Cocoon Cloud compling service or not.",
             "itemtype": "property",
             "name": "_managed",
@@ -264,7 +306,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 143,
+            "line": 164,
             "description": "If the app is launching in a 'sandbox' mode.",
             "itemtype": "property",
             "name": "_sandbox",
@@ -278,7 +320,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 165,
+            "line": 186,
             "description": "Returns the type of store that is being/will be used.",
             "itemtype": "method",
             "name": "getStoreType",
@@ -295,7 +337,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 177,
+            "line": 198,
             "description": "Initalises the store (if it is avaiable) and starts the retrieval of products and purchases.",
             "itemtype": "method",
             "name": "init",
@@ -326,7 +368,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 223,
+            "line": 244,
             "description": "Updates the purchases array with all of the purchase information stored in the local database. Internal use only.",
             "itemtype": "method",
             "name": "_retrievePurchases",
@@ -339,7 +381,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 243,
+            "line": 264,
             "description": "Updates the products array with all of the product information store in the local database. Internal use only.",
             "itemtype": "method",
             "name": "_retrieveProducts",
@@ -352,7 +394,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 261,
+            "line": 282,
             "description": "Retrieves a product by a productId that is passed. Doesn't update the local database of products first.",
             "itemtype": "method",
             "name": "getProductById",
@@ -376,7 +418,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 282,
+            "line": 303,
             "description": "The products that are currently avaiable.",
             "itemtype": "property",
             "name": "products",
@@ -390,7 +432,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 298,
+            "line": 319,
             "description": "The purchase's that the user has made.",
             "itemtype": "property",
             "name": "purchases",
@@ -404,7 +446,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 314,
+            "line": 335,
             "description": "Retreives product information off of the Store based on an array of productIds (in a string format) that are passed.",
             "itemtype": "method",
             "name": "fetchProductsFromStore",
@@ -424,7 +466,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 330,
+            "line": 351,
             "description": "Creates a new ProductInformation object and then adds it to the local database based on the parameters that are passed.",
             "itemtype": "method",
             "name": "createProduct",
@@ -474,7 +516,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 352,
+            "line": 373,
             "description": "Adds a ProductInfo object to the local database.",
             "itemtype": "method",
             "name": "addProduct",
@@ -494,7 +536,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 374,
+            "line": 395,
             "description": "Removes a product from the local database based on the parameters that are passed.",
             "itemtype": "method",
             "name": "removeProduct",
@@ -514,7 +556,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 391,
+            "line": 412,
             "description": "Request a product purchase given it's product id.",
             "itemtype": "method",
             "name": "purchaseProduct",
@@ -534,7 +576,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 409,
+            "line": 430,
             "description": "Request a product purchase given it's product id showing a modal progress dialog.",
             "itemtype": "method",
             "name": "purchaseProductModal",
@@ -554,7 +596,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 425,
+            "line": 446,
             "description": "Request the purchase of a product given it's product id showing a dialog with a preview of the product (title and description).",
             "itemtype": "method",
             "name": "purchaseProductModalWithPreview",
@@ -574,7 +616,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 441,
+            "line": 462,
             "description": "Returns a boolean indicating whether or not a product has been purchased or not.",
             "itemtype": "method",
             "name": "isPurchased",
@@ -598,7 +640,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 456,
+            "line": 477,
             "description": "Adds a purchase to the local database that stores purchase information.",
             "itemtype": "method",
             "name": "addPurchase",
@@ -618,7 +660,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 472,
+            "line": 493,
             "description": "Removes a purchase from the local database which stores the purchase information.",
             "itemtype": "method",
             "name": "removePurchase",
@@ -642,7 +684,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 489,
+            "line": 510,
             "description": "\"Consumes\" a purchase, allowing it to be purchased again. Currently only used for the Play Store. \nUse to prevent 'You already own this product' errors.\nMake sure when you use this method you also add event listeners to the onConsumeStarted, onConsumeCompleted and onConsumeFailed methods.\nNote: When a purchase is consumed that product can no longer be restored.",
             "itemtype": "method",
             "name": "consumePurchase",
@@ -662,7 +704,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 509,
+            "line": 530,
             "description": "Restoring the purchases is the way of returning purchased items information from the platform Store.\nOnly certain purchases can be restored. See http://wiki.ludei.com/cocoonjs:extensions:store or you platform store for more detail.",
             "itemtype": "method",
             "name": "restorePurchases",
@@ -675,7 +717,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 524,
+            "line": 545,
             "description": "Restores all of the purchases through the platforms market with a modal dialog.",
             "itemtype": "method",
             "name": "restorePurchasesModal",
@@ -688,7 +730,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 537,
+            "line": 558,
             "description": "Used to finish the a purchase transaction. Tells the store that you can successfully downloaded all of the required assets/e.t.c needed.",
             "itemtype": "method",
             "name": "finishPurchase",
@@ -712,7 +754,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 565,
+            "line": 586,
             "description": "The type of object that this is.",
             "itemtype": "method",
             "name": "objType",
@@ -729,7 +771,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 578,
+            "line": 599,
             "description": "Initalises the callbacks that the users have access to through this plugin.",
             "itemtype": "method",
             "name": "_createCallbacks",
@@ -742,7 +784,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 585,
+            "line": 606,
             "itemtype": "property",
             "name": "onFetchStarted",
             "type": "Signal",
@@ -755,7 +797,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 592,
+            "line": 613,
             "itemtype": "property",
             "name": "onFetchFailed",
             "type": "Signal",
@@ -768,7 +810,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 599,
+            "line": 620,
             "itemtype": "property",
             "name": "onFetchComplete",
             "type": "Signal",
@@ -781,7 +823,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 606,
+            "line": 627,
             "itemtype": "property",
             "name": "onRestoreStarted",
             "type": "Signal",
@@ -794,7 +836,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 613,
+            "line": 634,
             "itemtype": "property",
             "name": "onRestoreComplete",
             "type": "Signal",
@@ -807,7 +849,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 620,
+            "line": 641,
             "itemtype": "property",
             "name": "onRestoreFailedCallback",
             "type": "Signal",
@@ -820,7 +862,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 627,
+            "line": 648,
             "itemtype": "property",
             "name": "onPurchaseStartedCallback",
             "type": "Function",
@@ -834,7 +876,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 635,
+            "line": 656,
             "itemtype": "property",
             "name": "onPurchaseFailedCallback",
             "type": "Function",
@@ -848,7 +890,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 643,
+            "line": 664,
             "itemtype": "property",
             "name": "onPurchaseVertificationCallback",
             "type": "Function",
@@ -862,7 +904,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 651,
+            "line": 672,
             "itemtype": "property",
             "name": "onPurchaseCompleteCallback",
             "type": "Function",
@@ -876,7 +918,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 659,
+            "line": 680,
             "itemtype": "property",
             "name": "onConsumeStartedCallback",
             "type": "Function",
@@ -890,7 +932,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 667,
+            "line": 688,
             "itemtype": "property",
             "name": "onConsumeCompleteCallback",
             "type": "Function",
@@ -904,7 +946,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 675,
+            "line": 696,
             "itemtype": "property",
             "name": "onConsumeFailedCallback",
             "type": "Function",
@@ -918,7 +960,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 686,
+            "line": 707,
             "description": "Adds event listeners to the cocoon store. This is applyed during the init method of the app and is a internal method only.",
             "itemtype": "method",
             "name": "_startEvents",
@@ -931,7 +973,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 782,
+            "line": 803,
             "description": "If the user is not using Cocoons Extentions to managed the purchase verification then they are going to have to customise what happens \nwith this callback.",
             "itemtype": "method",
             "name": "_onProductPurchaseVerificationRequestReceived",
@@ -956,7 +998,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 840,
+            "line": 861,
             "description": "A consumable product.",
             "itemtype": "property",
             "name": "CONSUMABLE",
@@ -971,7 +1013,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 855,
+            "line": 876,
             "description": "A non-cunsumable product.",
             "itemtype": "property",
             "name": "NON_CONSUMABLE",
@@ -986,7 +1028,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 870,
+            "line": 891,
             "description": "An auto-renewable subscription. See platform documentation for further information.",
             "itemtype": "property",
             "name": "AUTO_RENEWABLE_SUBSCRIPTION",
@@ -1001,7 +1043,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 885,
+            "line": 906,
             "description": "A free subscription. See platform documentation for further information.",
             "itemtype": "property",
             "name": "FREE_SUBSCRIPTION",
@@ -1016,7 +1058,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 900,
+            "line": 921,
             "description": "A non-renewable subscription. See platform documentation for further information.",
             "itemtype": "property",
             "name": "NON_RENEWABLE_SUBSCRIPTION",
@@ -1031,7 +1073,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 918,
+            "line": 939,
             "description": "The number related to the app store.",
             "itemtype": "property",
             "name": "APP_STORE",
@@ -1046,7 +1088,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 935,
+            "line": 956,
             "description": "The number related to the app store.",
             "itemtype": "property",
             "name": "PLAY_STORE",
@@ -1061,7 +1103,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 952,
+            "line": 973,
             "description": "The number related to the app store.",
             "itemtype": "property",
             "name": "MOCK_STORE",
@@ -1076,7 +1118,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 969,
+            "line": 990,
             "description": "The number related to the app store.",
             "itemtype": "property",
             "name": "CHROME_STORE",
@@ -1091,7 +1133,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 986,
+            "line": 1007,
             "description": "The number related to the app store.",
             "itemtype": "property",
             "name": "AMAZON_STORE",
@@ -1106,7 +1148,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1003,
+            "line": 1024,
             "description": "The number related to the app store.",
             "itemtype": "property",
             "name": "NOOK_STORE",
@@ -1121,7 +1163,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1021,
+            "line": 1042,
             "description": "The number related to a purchaseState that is successful.",
             "itemtype": "property",
             "name": "PURCHASED",
@@ -1136,7 +1178,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1038,
+            "line": 1059,
             "description": "The number related to a purchaseState that is canceled.",
             "itemtype": "property",
             "name": "CANCELED",
@@ -1151,7 +1193,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1055,
+            "line": 1076,
             "description": "The number related to a purchaseState that has been refunded.",
             "itemtype": "property",
             "name": "REFUNDED",
@@ -1166,7 +1208,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1072,
+            "line": 1093,
             "description": "The number related to a purchaseState that has expired. Used mainly on subscription based purchases.",
             "itemtype": "property",
             "name": "EXPIRED",
@@ -1181,7 +1223,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1090,
+            "line": 1111,
             "description": "The following functions are for testing purpose's only and will not work in a production enviroment.",
             "class": "Kiwi.Plugins.InAppPurchase",
             "module": "Kiwi",
@@ -1190,7 +1232,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1096,
+            "line": 1117,
             "description": "Simulates the expiration of a purchase for the transactionId you pass.",
             "itemtype": "method",
             "name": "expirePurchase",
@@ -1209,7 +1251,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1110,
+            "line": 1131,
             "description": "Simulates the cancelation of a purchase for the transactionId you pass.",
             "itemtype": "method",
             "name": "cancelPurchase",
@@ -1228,7 +1270,7 @@
         },
         {
             "file": "src\\inAppPurchase-1.0.0.js",
-            "line": 1124,
+            "line": 1145,
             "description": "Simulates the refunding of a purchase, based on the transactionId you pass.",
             "itemtype": "method",
             "name": "refundPurchase",
@@ -1249,67 +1291,67 @@
     "warnings": [
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:840"
+            "line": " src\\inAppPurchase-1.0.0.js:861"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:855"
+            "line": " src\\inAppPurchase-1.0.0.js:876"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:870"
+            "line": " src\\inAppPurchase-1.0.0.js:891"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:885"
+            "line": " src\\inAppPurchase-1.0.0.js:906"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:900"
+            "line": " src\\inAppPurchase-1.0.0.js:921"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:918"
+            "line": " src\\inAppPurchase-1.0.0.js:939"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:935"
+            "line": " src\\inAppPurchase-1.0.0.js:956"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:952"
+            "line": " src\\inAppPurchase-1.0.0.js:973"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:969"
+            "line": " src\\inAppPurchase-1.0.0.js:990"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:986"
+            "line": " src\\inAppPurchase-1.0.0.js:1007"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:1003"
+            "line": " src\\inAppPurchase-1.0.0.js:1024"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:1021"
+            "line": " src\\inAppPurchase-1.0.0.js:1042"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:1038"
+            "line": " src\\inAppPurchase-1.0.0.js:1059"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:1055"
+            "line": " src\\inAppPurchase-1.0.0.js:1076"
         },
         {
             "message": "unknown tag: number",
-            "line": " src\\inAppPurchase-1.0.0.js:1072"
+            "line": " src\\inAppPurchase-1.0.0.js:1093"
         },
         {
             "message": "Missing item type\nThe following functions are for testing purpose's only and will not work in a production enviroment.",
-            "line": " src\\inAppPurchase-1.0.0.js:1090"
+            "line": " src\\inAppPurchase-1.0.0.js:1111"
         }
     ]
 }

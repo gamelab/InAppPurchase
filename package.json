@@ -4,11 +4,11 @@
     "description": "Provides better intergration of the Cocoon inAppPurchase extension into Kiwi as well as providing documentation, examples and tutorials on the use of it.",
     "author": {
         "name": "Gamelab",
-        "email": ""
+        "email": "support@kiwijs.org"
         },
 
     "homepage": "http://kiwijs.org/",
-    "bugs": "",
+    "bugs": "support@kiwijs.org",
     "license": "MIT",
     "licenseUrl": "",
 

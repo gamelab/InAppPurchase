@@ -9,8 +9,29 @@
 */
 Kiwi.Plugins.InAppPurchase = {
 
-	    name:'InAppPurchase',
-    	version:'1.0.0'
+    /**
+    * The name of this plugin.
+    * @property name
+    * @type String
+    * @public
+    */
+	name: 'InAppPurchase',
+
+    /**
+    * The version of this plugin in semver (semantic versioning) format
+    * @property version
+    * @type String
+    * @public
+    */
+    version: '1.0.0',
+
+    /**
+    * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
+    * @property minimumKiwiVersion
+    * @type String
+    * @public
+    */
+    minimumKiwiVersion:'1.0.0'
 
 };
    
