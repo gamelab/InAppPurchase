@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     uglify: {
         build: {
             files: {
-              'src/InAppPurchase-<%= pkg.version %>.min.js': ['<%= pkg.main %>']
+              'src/in-app-purchase-<%= pkg.version %>.min.js': ['<%= pkg.main %>']
             }
         },
 
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
               'examples/intro/final/gamemin.js': [
                 'lib/cocoon.js',
                 'lib/kiwi.js',
-                'src/InAppPurchase-<%= pkg.version %>.js',
+                'src/in-app-purchase-<%= pkg.version %>.js',
                 'lib/plugins/bitmapText-1.1.js',
                 'examples/intro/main.js'
               ]
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
               'examples/sierra/final/gamemin.js': [
                 'lib/cocoon.js',
                 'lib/kiwi.js',
-                'src/InAppPurchase-<%= pkg.version %>.js',
+                'src/in-app-purchase-<%= pkg.version %>.js',
                 'examples/sierra/main.js'
               ]
             }
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
               'examples/bootcamp/final/gamemin.js': [
                 'lib/cocoon.js',
                 'lib/kiwi.js',
-                'src/InAppPurchase-<%= pkg.version %>.js',
+                'src/in-app-purchase-<%= pkg.version %>.js',
                 'lib/plugins/bitmapText-1.1.js',
                 'lib/plugins/saveManager-1.0.1.js',
                 'examples/bootcamp/classes.js',

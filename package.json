@@ -17,7 +17,7 @@
         "url": ""
     },
 
-    "main": "src/InAppPurchase-1.1.0.js",
+    "main": "src/in-app-purchase-1.1.0.js",
 
     "dependencies": {},
     "devDependencies": {
