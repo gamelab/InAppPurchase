@@ -1,31 +1,18 @@
-InAppPurchase Plugin. 
+InAppPurchase Plugin for [Kiwi.JS](http://www.kiwijs.org) 
 =======================================
--------------------------------------
-Name: InAppPurchase Plugin.
 
-Version: 1.0.0
-
-Type: GameObject Plugin
-
-Author: Kiwi.js Team
-
-Website: www.kiwijs.org
-
-KiwiJS last version tested: 1.0.0
-
-Tutorials for this plugin can be found on the Kiwi.JS website here:
-
-[In App Purchase Documentation](http://www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation/)
-
+Tutorials for this plugin can be found on the Kiwi.JS website [here](http://www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation/)
 
 ##Versions:
---------------------------------------------------------------------------
+1.1.0
+- Updated to work with latest version of CocoonJS
+- Updated Kiwi Version
+
 1.0.0 
 - Initial released version of this plugin. 
 
 
 ##Description:
---------------------------------------------------------------------------
 
 Made to help bring the inAppPurchase functionality that Cocoon offer's more easily accessable, and to use into Kiwi. This is so that when you are using Kiwi you can more easily execute the Cocoon code, add callbacks and access products/purchases made across the entire game without having to add in your own 'custom' management classes.
 
@@ -35,18 +22,15 @@ If you have any problems then feel free to contact us via the [www.kiwijs.org](h
 
 
 ##Dependencies 
---------------------------------------------------------------------------
 - CocoonJS Premium Account
 
 
 
 ##Tutorials:
---------------------------------------------------------------------------
 For examples, tutorials or more information about the In App Purchasing plugin, visit the (www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation)[http://www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation/] page.
 
 
 ##Examples:
---------------------------------------------------------------------------
 
 Inside the examples folder you can find three different examples of how you can use the inAppPurchase plugin. Each example functions in a different way to show varying methods of how you can implement IAP into your own game.
 
@@ -61,7 +45,6 @@ Bootcamp is a more robust example. In this example, we are using the platforms s
 
 
 ##How to Include: 
---------------------------------------------------------------------------
 
 ##First Step:
 Copy either the cocoonInAppPurchase.js or the cocoonInAppPurchase.min.js file (they should be right next to this one right now) into your project directory. We recommend that you save the files under a plugin directory that lives inside of your project directory so that you can easily manage all of the plugins but that is not required.
@@ -94,7 +77,6 @@ Now that you have successfully include the plugin you can start using it. You ca
 
 
 ##Take Note!
---------------------------------------------------------------------------
 
 * This app will only work if you are making Cocoon apps and are targeting Cocoon when creating your games. Otherwise unexpected results will happen and the in app purchasing may not work. 
 
@@ -104,7 +86,6 @@ Now that you have successfully include the plugin you can start using it. You ca
 
 
 ##Purchase / Product Objects
---------------------------------------------------------------------------
 Throughout the plugin and its process two types of object are consistently used. Purchase and Product objects. The following documents the various indexs/namespaces located on them.
 
 Purchase Object
@@ -127,7 +108,6 @@ Product Object
 
 
 ##Product Types.
---------------------------------------------------------------------------
 
 A brief list containing the different types of products. See market/platform documentation for more information. 	
 
@@ -141,7 +121,6 @@ Note: Each product object contains a "productType" index. That index is a number
 
 
 ##Store Types.
---------------------------------------------------------------------------
 
 When developing your app you may need to change certain implementations depending on the type of store. You can get the store being used through either the "storeType" property or the "getStore" method on the "inAppPurchase" object.
 
@@ -156,7 +135,6 @@ You can access these STATIC versions of these numbers with the corresponding sto
 
 
 ##Purchase States
---------------------------------------------------------------------------
 
 When a purchase is complete a 'purchaseState' will be on the 'purchase' object containing if the purchase was a success or not.
 
@@ -169,7 +147,6 @@ You can access STATIC versions of these numbers with the corresponding numbers t
 
 
 ##Testing Methods.
---------------------------------------------------------------------------
 While testing out your app you will want to make sure that if the user 'declines' at any part of the process your app will still work. These methods are there to help out with that. 
 
 Note: The following methods are used only in the development/testing stages and will NOT work in a production enviroment.
