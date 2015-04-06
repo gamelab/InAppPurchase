@@ -237,7 +237,7 @@ bootcamp.create = function() {
 			this.productIds.push( this.productInfo[i].id );
 		}
 
-	    this.game.inAppPurchase.fetchProductsFromStore( this.productIds );
+	    this.game.inAppPurchase.loadProducts( this.productIds );
         return;
     } 
 
@@ -554,7 +554,7 @@ bootcamp.purchaseCredits = function(owner) {
     if(owner.product !== null && this.purchasing == false) {
 
         //Purchase the product
-        this.game.inAppPurchase.purchaseProduct( owner.product.productId );
+        this.game.inAppPurchase.purchase( owner.product.productId );
 
     }
 } 

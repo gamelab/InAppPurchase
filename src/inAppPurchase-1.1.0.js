@@ -911,10 +911,10 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseCompleted =
  	
  	if(this.autoConsume == true && this.getProductById(purchase.productId).productType == Kiwi.Plugins.InAppPurchase.InAppPurchase.CONSUMABLE) { 
  		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase being Auto Consumed.', '#inAppPurchase');
- 		this.consumePurchase( purchase );
+ 		this.consume( purchase );
  	}
 	
-	this.finishPurchase(purchase.transactionId);
+	this.finish(purchase.transactionId);
  	if(this.addPurchases) this.addPurchase(purchase);
 
 	this.retrievePurchases();
