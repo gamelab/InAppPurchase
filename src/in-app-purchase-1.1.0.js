@@ -23,7 +23,7 @@ Kiwi.Plugins.InAppPurchase = {
     * @type String
     * @public
     */
-    version: '1.0.0',
+    version: '1.1.0',
 
     /**
     * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
@@ -31,7 +31,7 @@ Kiwi.Plugins.InAppPurchase = {
     * @type String
     * @public
     */
-    minimumKiwiVersion:'1.0.0'
+    minimumKiwiVersion:'1.3.0'
 
 };
    
@@ -103,11 +103,16 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 
 	/**
 	* The type of store that is being used.
+	* Will be -1 if the Cocoon API could not be found.
 	* @property storeType
 	* @type number
 	* @public
 	*/
-	this.storeType = CocoonJS.Store.getStoreType();
+	if( Cocoon && Cocoon.Store ) {
+		this.storeType = Cocoon && Cocoon.Store && Cocoon.Store.getStoreType();
+	} else {
+		this.storeType = -1;
+	}
 
 	/**
 	* An array holding all of the products that are avaiable on the store.
@@ -173,7 +178,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 	this._createCallbacks(); 
 
 	//Initial test to see the store is avaiable or not
-	if(CocoonJS.Store.nativeExtensionObjectAvailable && this.game.deviceTargetOption == Kiwi.TARGET_COCOON && CocoonJS.Store.canPurchase() == false) {
+	if(Cocoon.Store.nativeAvailable && this.game.deviceTargetOption == Kiwi.TARGET_COCOON && Cocoon.Store.canPurchase() == false) {
 		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Cannot Use the InAppPurchase Plugin.');
 	} else {
 		this.available = true;
@@ -190,7 +195,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 * @public
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.getStoreType = function() {
-	return CocoonJS.Store.getStoreType();
+	return Cocoon.Store.getStoreType();
 }
 
 
@@ -203,7 +208,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.getStoreType = function() {
 * @return {Boolean}
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.init = function(managed, sandbox) {
-	if(CocoonJS.Store.nativeExtensionObjectAvailable && this.game.deviceTargetOption == Kiwi.TARGET_COCOON && CocoonJS.Store.canPurchase() == false) {
+	if(Cocoon.Store.nativeAvailable && this.game.deviceTargetOption == Kiwi.TARGET_COCOON && !Cocoon.Store.canPurchase()) {
 		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Could not initialise Store.');
 	 	return false; 
 	}
@@ -214,9 +219,9 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.init = function(managed, sand
 	if(typeof managed == "undefined") managed = false;
 
 	if(this.game.debugOption == Kiwi.DEBUG_ON) {
-		console.log( 'Initialisation Starting' );
-		console.log( 'Sandbox is ' + sandbox.toString() );
-		console.log( 'Managed Mode is ' + managed.toString() );
+		Kiwi.Log.log( 'Initialisation Starting', '#inAppPurchase' );
+		Kiwi.Log.log( 'Sandbox is ' + sandbox.toString(), '#inAppPurchase' );
+		Kiwi.Log.log( 'Managed Mode is ' + managed.toString(), '#inAppPurchase' );
 	}
 
 	this._startEvents();
@@ -226,11 +231,10 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.init = function(managed, sand
 	this._sandbox = sandbox;
 
 	//Initialise Cocoon.
-	CocoonJS.Store.requestInitialization( {
+	Cocoon.Store.initialize( {
   		sandbox: sandbox,
   		managed:managed 
-  	});
-	CocoonJS.Store.start();
+  	} );
 
 	//Get all of the products and the purchases.
 	this.retrieveProducts();
@@ -242,36 +246,40 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.init = function(managed, sand
 
 
 /**
-* Updates the purchases array with all of the purchase information stored in the local database. Internal use only.
+* Updates the purchases array with all of the purchase information stored in the local database. 
+* Internal use only.
 * @method _retrievePurchases
 * @private
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.retrievePurchases = function() {
 	if(this.available) {
 		
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Retrieveing Purchases' );
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Retrieveing Purchases', '#inAppPurchase' );
 
-		var purchases = CocoonJS.Store.getPurchases();
+		var purchases = Cocoon.Store.getPurchases();
+		
 		if(typeof purchases != "undefined") {
-			console.log('Type of Purchase: '+typeof purchases);
+			Kiwi.Log.log('Type of Purchase: ' + typeof purchases, '#inAppPurchase');
 			this._purchases = purchases;
 		} 
+
 	}
 }
 
 
 
 /**
-* Updates the products array with all of the product information store in the local database. Internal use only.
+* Updates the products array with all of the product information store in the local database. 
+* Internal use only.
 * @method _retrieveProducts
 * @private
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.retrieveProducts = function() {
 	if(this.available) {
 		
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Retrieveing Products' );
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Retrieveing Products', '#inAppPurchase' );
 
-		var products = CocoonJS.Store.getProducts();
+		var products = Cocoon.Store.getProducts();
 		if(typeof products != "undefined") {
 			this._products = products;
 		}
@@ -337,12 +345,27 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype, "purch
 * @method fetchProductsFromStore
 * @param productIds {String[]} An array of strings, each of which being a productId.
 * @public
+* @deprecated
+* @since 1.1.0
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.fetchProductsFromStore = function(productIds) {
+	Kiwi.Log.log( "Use of this method has been deprecated. It will still work, but recommend use of 'loadProducts' instead.", '#inAppPurchase' );
+	this.loadProducts( productIds );
+}
+
+/**
+* Retreives product information off of the Store based on an array of productIds (in a string format) that are passed.
+* @method loadProducts
+* @param productIds {String[]} An array of strings, each of which being a productId.
+* @public
+* @deprecated
+* @since 1.1.0
+*/
+Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.loadProducts = function(productIds) {
 	if(this.available && typeof productIds !== "undefined") {
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Now trying to fetch the products from the store.' );
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Now trying to fetch the products from the store.', '#inAppPurchase' );
 		
-		CocoonJS.Store.fetchProductsFromStore(productIds);
+		Cocoon.Store.loadProducts(productIds);
 	}
 }
 
@@ -362,9 +385,19 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.fetchProductsFromStore = func
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.createProduct = function(productAlias, productId, productType, title, description, price, localizedPrice, downloadURL) {
 	if(this.available) {
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Addition of a product started' );
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Addition of a product started' );
 
-		var prod = new CocoonJS.Store.ProductInfo( productAlias, productId, productType, title, description, price, localizedPrice, downloadURL );
+		var prod = {
+			productId : productId,
+			productAlias : productAlias,
+			productType : productType,
+			title : title,
+			description : description,
+			price : price,
+			localizedPrice : localizedPrice,
+			downloadURL : downloadURL
+		};
+
 		//Add the product
 		this.addProduct( prod );
 	}
@@ -380,9 +413,9 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.addProduct = function(product
 
 	if(this.available && typeof product !== "undefined") {
 
-		if(Kiwi.DEBUG_ON == this.game.debugOption) console.log( 'Product Addition started.' );
+		if(Kiwi.DEBUG_ON == this.game.debugOption) Kiwi.Log.log( 'Product Addition started.' );
 
-		CocoonJS.Store.addProduct(product);
+		Cocoon.Store.addProduct(product);
 		
 		//Retrieve the products again
 		this.retrieveProducts();
@@ -401,12 +434,11 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.addProduct = function(product
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.removeProduct = function(productId) {
 	if(this.available) {
 	
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Removal of a product started' );
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Removal of a product started' );
 
-		CocoonJS.Store.removeProduct( productId );
+		Cocoon.Store.removeProduct( productId );
 	}
 }
-
 
 
 /**
@@ -414,17 +446,30 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.removeProduct = function(prod
 * @method purchaseProduct
 * @param productId {String} The Id of the product that is being requested to be brought.
 * @public
+* @deprecated
+* @since 1.1.0
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchaseProduct = function(productId) {
-	if(typeof productId == "undefined" || this.available == false || CocoonJS.Store.canPurchase() == false) {
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Purchase of a product could not be preformed.');
-		return;
-	}
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase of a product started.' );
-
-	CocoonJS.Store.purchaseProduct(productId);
+	Kiwi.Log.log("This method has been deprecated. This method will still work, but you should use 'purchase' instead.");
+	this.purchase(productId);
 }
 
+
+/**
+* Request a product purchase given it's product id. 
+* @method purchase
+* @param productId {String} The Id of the product that is being requested to be brought.
+* @public
+*/
+Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchase = function(productId) {
+	if(typeof productId == "undefined" || this.available == false || Cocoon.Store.canPurchase() == false) {
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase of a product could not be preformed.', '#inAppPurchase');
+		return;
+	}
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase of a product started.', '#inAppPurchase' );
+
+	Cocoon.Store.purchase(productId);
+}
 
 
 /**
@@ -436,9 +481,9 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchaseProduct = function(pr
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchaseProductModal = function(productId) {
 	if(typeof productId == "undefined" || this.available == false) return;
 
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase of a product with a progress dialog starting.' );
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase of a product with a progress dialog starting.', '#inAppPurchase' );
 
-	CocoonJS.Store.puchaseProductModal(productId);
+	Cocoon.Store.puchaseProductModal(productId);
 }
 
 
@@ -452,9 +497,9 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchaseProductModal = functi
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchaseProductModalWithPreview = function(productId) {
 	if(typeof productId == "undefined" || this.available == false) return;
 
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase of a product with a preview happening.' );
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase of a product with a preview happening.', '#inAppPurchase' );
 
-	CocoonJS.Store.purchaseProductModalWithPreview(productId);
+	Cocoon.Store.purchaseProductModalWithPreview(productId);
 }
 
 
@@ -469,7 +514,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchaseProductModalWithPrevi
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.isPurchased = function(productId) {
 	if(this.available == false || typeof productId == "undefined") return false;
 
-	return CocoonJS.Store.isProductPurchased(productId);
+	return Cocoon.Store.isProductPurchased(productId);
 }
 
 
@@ -483,9 +528,9 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.isPurchased = function(produc
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.addPurchase = function(purchase) {
 	if(typeof purchase == "undefined" || this.available == false) return;
 
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase Addition Process Started' );
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Addition Process Started', '#inAppPurchase' );
 
-	CocoonJS.Store.addPurchase(purchase);
+	Cocoon.Store.addPurchase(purchase);
 }
 
 
@@ -500,9 +545,9 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.addPurchase = function(purcha
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.removePurchase = function(transactionId) {
 	if(typeof transactionId == "undefined" || this.available == false) return;
 
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase Removal Process Starting' );
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Removal Process Starting', '#inAppPurchase' );
 
-	return CocoonJS.Store.removePurchase(transactionId);
+	return Cocoon.Store.removePurchase(transactionId);
 }
 
 
@@ -515,16 +560,31 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.removePurchase = function(tra
 * @method consumePurchase
 * @param purchase {Object} The purchase that you want to consume.
 * @public
+* @deprecated
+* @since 1.1.0
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.consumePurchase = function(purchase) {
-	if(typeof purchase == "undefined" || this.available == false) return;
-
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase Consumation Process Starting' );
-
-	CocoonJS.Store.consumePurchase(purchase.transactionId, purchase.productId);
-
+	Kiwi.Log.log("This method is deprecated. It will still work but you should use 'consume' instead.", '#inAppPurchase');
+	this.consume(purchase);
 }
 
+
+/**
+* "Consumes" a purchase, allowing it to be purchased again. Currently only used for the Play Store. 
+* Use to prevent 'You already own this product' errors.
+* Make sure when you use this method you also add event listeners to the onConsumeStarted, onConsumeCompleted and onConsumeFailed methods.
+* Note: When a purchase is consumed that product can no longer be restored.
+* @method consume
+* @param purchase {Object} The purchase that you want to consume.
+* @public
+*/
+Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.consume = function(purchase) {
+	if(typeof purchase == "undefined" || this.available == false) return;
+
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Consumation Process Starting', '#inAppPurchase' );
+
+	Cocoon.Store.consume(purchase.transactionId, purchase.productId);
+}
 
 
 /**
@@ -532,14 +592,28 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.consumePurchase = function(pu
 * Only certain purchases can be restored. See http://wiki.ludei.com/cocoonjs:extensions:store or you platform store for more detail.
 * @method restorePurchases
 * @public
+* @deprecated
+* @since 1.1.0
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.restorePurchases = function() {
-	if(this.available == true) { 
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase Restoration Started.' );
-		CocoonJS.Store.restorePurchases();
-	}
+	Kiwi.Log.log('This method has been deprecated. You should use the \'restore\' method instead.', '#inAppPurchase');
+	this.restore();
 }
 
+/**
+* Restoring the purchases is the way of returning purchased items information from the platform Store.
+* Only certain purchases can be restored. See http://wiki.ludei.com/cocoonjs:extensions:store or you platform store for more detail.
+* @method restorePurchases
+* @public
+* @deprecated
+* @since 1.1.0
+*/
+Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.restore = function() {
+	if(this.available == true) { 
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Restoration Started.', '#inAppPurchase' );
+		Cocoon.Store.restore();
+	}
+}
 
 
 /**
@@ -549,8 +623,8 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.restorePurchases = function()
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.restorePurchasesModal = function() {
 	if(this.available == true) {
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log( 'Purchase Restoration with Modal Started.' );
-		CocoonJS.Store.restorePurchasesModal();
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Restoration with Modal Started.', '#inAppPurchase' );
+		Cocoon.Store.restorePurchasesModal();
 	}
 }
 
@@ -561,8 +635,21 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.restorePurchasesModal = funct
 * @param transactionId {String} The id of the transaction that has been finished.
 * @return {Boolean} If the finished method for that transaction was successful or not.
 * @public 
+* @deprecated
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.finishPurchase = function(transactionId) {
+	Kiwi.Log.log("This method is deprecated. This method will still work, but you should use the 'finish' method instead.", '#inAppPurchase');
+	this.finish( transactionId );
+}
+
+/**
+* Used to finish the a purchase transaction. Tells the store that you can successfully downloaded all of the required assets/e.t.c needed. 
+* @method finish
+* @param transactionId {String} The id of the transaction that has been finished.
+* @return {Boolean} If the finished method for that transaction was successful or not.
+* @public 
+*/
+Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.finish = function(transactionId) {
 	if(this.available) {
 		//Does that transaction already exist?
 		if(typeof this._purchases != "undefined") {
@@ -573,10 +660,10 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.finishPurchase = function(tra
 			}
 		}
 
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('TransactionID '+transactionId+' has been finialized');
+		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('TransactionID ' + transactionId + ' has been finialized', '#inAppPurchase');
 
 		//Finish the transaction
-		CocoonJS.Store.finishPurchase(transactionId);
+		Cocoon.Store.finish(transactionId);
 		return true;
 	}
 }
@@ -711,22 +798,22 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._createCallbacks = function()
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._startEvents = function() {
 	//Product Fetch Events
-	CocoonJS.Store.onProductsFetchStarted.addEventListener( this._onProductsFetchStarted.bind(this) );
-	CocoonJS.Store.onProductsFetchFailed.addEventListener( this._onProductsFetchFailed.bind(this) );
-	CocoonJS.Store.onProductsFetchCompleted.addEventListener( this._onProductsFetchCompleted.bind(this) );
+	Cocoon.Store.onProductsFetchStarted.addEventListener( this._onProductsFetchStarted.bind(this) );
+	Cocoon.Store.onProductsFetchFailed.addEventListener( this._onProductsFetchFailed.bind(this) );
+	Cocoon.Store.onProductsFetchCompleted.addEventListener( this._onProductsFetchCompleted.bind(this) );
 	//Restore Purchase Events
-	CocoonJS.Store.onRestorePurchasesStarted.addEventListener( this._onRestorePurchasesStarted.bind(this) );
-	CocoonJS.Store.onRestorePurchasesCompleted.addEventListener( this._onRestorePurchasesCompleted.bind(this) );
-	CocoonJS.Store.onRestorePurchasesFailed.addEventListener( this._onRestorePurchasesFailed.bind(this) );
+	Cocoon.Store.onRestorePurchasesStarted.addEventListener( this._onRestorePurchasesStarted.bind(this) );
+	Cocoon.Store.onRestorePurchasesCompleted.addEventListener( this._onRestorePurchasesCompleted.bind(this) );
+	Cocoon.Store.onRestorePurchasesFailed.addEventListener( this._onRestorePurchasesFailed.bind(this) );
 	//Purchase Events 
-	CocoonJS.Store.onProductPurchaseStarted.addEventListener( this._onProductPurchaseStarted.bind(this) );
-	CocoonJS.Store.onProductPurchaseFailed.addEventListener( this._onProductPurchaseFailed.bind(this) );
-	CocoonJS.Store.onProductPurchaseVerificationRequestReceived.addEventListener( this._onProductPurchaseVerificationRequestReceived.bind(this) );
-	CocoonJS.Store.onProductPurchaseCompleted.addEventListener( this._onProductPurchaseCompleted.bind(this) );
+	Cocoon.Store.onProductPurchaseStarted.addEventListener( this._onProductPurchaseStarted.bind(this) );
+	Cocoon.Store.onProductPurchaseFailed.addEventListener( this._onProductPurchaseFailed.bind(this) );
+	Cocoon.Store.onProductPurchaseVerificationRequestReceived.addEventListener( this._onProductPurchaseVerificationRequestReceived.bind(this) );
+	Cocoon.Store.onProductPurchaseCompleted.addEventListener( this._onProductPurchaseCompleted.bind(this) );
 	//Consume Purchase Events
-	CocoonJS.Store.onConsumePurchaseStarted.addEventListener( this._onConsumePurchaseStarted.bind(this) );
-	CocoonJS.Store.onConsumePurchaseCompleted.addEventListener( this._onConsumePurchaseCompleted.bind(this) );
-	CocoonJS.Store.onConsumePurchaseFailed.addEventListener( this._onConsumePurchaseFailed.bind(this) );
+	Cocoon.Store.onConsumePurchaseStarted.addEventListener( this._onConsumePurchaseStarted.bind(this) );
+	Cocoon.Store.onConsumePurchaseCompleted.addEventListener( this._onConsumePurchaseCompleted.bind(this) );
+	Cocoon.Store.onConsumePurchaseFailed.addEventListener( this._onConsumePurchaseFailed.bind(this) );
 }
 
 
@@ -739,18 +826,18 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductsFetchStarted = fun
 
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductsFetchFailed = function(error) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Products Fetch has Failed: '+error);
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Products Fetch has Failed: '+error, '#inAppPurchase');
 	
 	this.onFetchFailed.dispatch(error); 
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductsFetchCompleted = function(products) {
 	if(this.game.debugOption == Kiwi.DEBUG_ON) { 
-		console.log('Products Fetch has Succeed.');
+		Kiwi.Log.log('Products Fetch has Succeed.', '#inAppPurchase');
 
 		//console.log('Products! '+ typeof products);
 
 		for(var item in products) {
-			console.log('Product '+products[item].productId+' Vertified');
+			Kiwi.Log.log('Product '+products[item].productId+' Vertified', '#inAppPurchase');
 		}
 	}
 
@@ -769,17 +856,17 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductsFetchCompleted = f
 
 //Restore Purchase Events
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onRestorePurchasesStarted = function() {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Purchase Restoration Started.');
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase Restoration Started.', '#inAppPurchase');
 
 	this.onRestoreStarted.dispatch();
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onRestorePurchasesCompleted = function() {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Purchase Restoration Completed.');
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase Restoration Completed.', '#inAppPurchase');
 
 	this.onRestoreCompleted.dispatch();
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onRestorePurchasesFailed = function(error) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Purchase Restoration Failed: ' + error);
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase Restoration Failed: ' + error, '#inAppPurchase');
 
 	this.onRestoreFailed.dispatch(error);
 }
@@ -788,12 +875,12 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onRestorePurchasesFailed = f
 
 //Purchase Events
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseStarted = function(productId) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Product Purchase Started: '+productId);	
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Product Purchase Started: '+productId, '#inAppPurchase');	
 
 	this.onPurchaseStarted.dispatch(productId);
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseFailed = function(productId, error) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Product Purchase of '+productId+ ' failed: '+error);
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Product Purchase of '+productId+ ' failed: '+error, '#inAppPurchase');
 
 	this.onPurchaseFailed.dispatch(productId, error);
 }
@@ -810,9 +897,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseFailed = fu
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseVerificationRequestReceived = function(productId, data) {
 	//Do product verification here.... Perhaps needs to be custom?
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Product '+productId+' Verification Requested');
-
-	console.log( data );
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Product '+productId+' Verification Requested', '#inAppPurchase');
 
 	/*
 		The user has to do there own verification against a 'backend' server.
@@ -822,14 +907,14 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseVerificatio
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseCompleted = function(purchase) {
 
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Purchase Completed: '+purchase.productId);
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase Completed: '+purchase.productId, '#inAppPurchase');
  	
  	if(this.autoConsume == true && this.getProductById(purchase.productId).productType == Kiwi.Plugins.InAppPurchase.InAppPurchase.CONSUMABLE) { 
- 		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Purchase being Auto Consumed.');
- 		this.consumePurchase( purchase );
+ 		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase being Auto Consumed.', '#inAppPurchase');
+ 		this.consume( purchase );
  	}
 	
-	this.finishPurchase(purchase.transactionId);
+	this.finish(purchase.transactionId);
  	if(this.addPurchases) this.addPurchase(purchase);
 
 	this.retrievePurchases();
@@ -840,17 +925,17 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseCompleted =
 
 //Consume Purchase Events
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onConsumePurchaseStarted = function(transactionId) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Consume of transaction Started.');
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Consume of transaction Started.', '#inAppPurchase');
 
 	this.onConsumeStarted.dispatch(transactionId);
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onConsumePurchaseCompleted = function(transactionId) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Consume of transaction success');
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Consume of transaction success', '#inAppPurchase');
 
 	this.onConsumeComplete.dispatch(transactionId);
 }
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onConsumePurchaseFailed = function(transactionId, error) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Consume of transaction '+transactionId+' has failed: '+error);
+	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Consume of transaction '+transactionId+' has failed: '+error, '#inAppPurchase');
 
 	this.onConsumeFailed.dispatch(transactionId, error);
 }
@@ -867,7 +952,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onConsumePurchaseFailed = fu
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "CONSUMABLE", {
 	get: function() {
-		return CocoonJS.Store.ProductType.CONSUMABLE;
+		return Cocoon.Store.ProductType.CONSUMABLE;
 	},
     enumerable: true,
     configurable: true
@@ -882,7 +967,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "CONSUMABLE", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "NON_CONSUMABLE", {
 	get: function() {
-		return CocoonJS.Store.ProductType.NON_CONSUMABLE;
+		return Cocoon.Store.ProductType.NON_CONSUMABLE;
 	},
     enumerable: true,
     configurable: true
@@ -897,7 +982,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "NON_CONSUMABLE"
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "AUTO_RENEWABLE_SUBSCRIPTION", {
 	get: function() {
-		return CocoonJS.Store.ProductType.AUTO_RENEWABLE_SUBSCRIPTION;
+		return Cocoon.Store.ProductType.AUTO_RENEWABLE_SUBSCRIPTION;
 	},
     enumerable: true,
     configurable: true
@@ -912,7 +997,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "AUTO_RENEWABLE_
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "FREE_SUBSCRIPTION", {
 	get: function() {
-		return CocoonJS.Store.ProductType.FREE_SUBSCRIPTION;
+		return Cocoon.Store.ProductType.FREE_SUBSCRIPTION;
 	},
     enumerable: true,
     configurable: true
@@ -927,7 +1012,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "FREE_SUBSCRIPTI
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "NON_RENEWABLE_SUBSCRIPTION", {
 	get: function() {
-		return CocoonJS.Store.ProductType.NON_RENEWABLE_SUBSCRIPTION;
+		return Cocoon.Store.ProductType.NON_RENEWABLE_SUBSCRIPTION;
 	},
     enumerable: true,
     configurable: true
@@ -945,7 +1030,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "NON_RENEWABLE_S
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "APP_STORE", {
 	get: function() {
-		return CocoonJS.Store.StoreType.APP_STORE;
+		return Cocoon.Store.StoreType.APP_STORE;
 	},
     enumerable: true,
     configurable: true
@@ -962,7 +1047,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "APP_STORE", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "PLAY_STORE", {
 	get: function() {
-		return CocoonJS.Store.StoreType.PLAY_STORE;
+		return Cocoon.Store.StoreType.PLAY_STORE;
 	},
     enumerable: true,
     configurable: true
@@ -979,7 +1064,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "PLAY_STORE", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "MOCK_STORE", {
 	get: function() {
-		return CocoonJS.Store.StoreType.MOCK_STORE;
+		return Cocoon.Store.StoreType.MOCK_STORE;
 	},
     enumerable: true,
     configurable: true
@@ -996,7 +1081,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "MOCK_STORE", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "CHROME_STORE", {
 	get: function() {
-		return CocoonJS.Store.StoreType.CHROME_STORE;
+		return Cocoon.Store.StoreType.CHROME_STORE;
 	},
     enumerable: true,
     configurable: true
@@ -1013,7 +1098,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "CHROME_STORE", 
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "AMAZON_STORE", {
 	get: function() {
-		return CocoonJS.Store.StoreType.AMAZON_STORE;
+		return Cocoon.Store.StoreType.AMAZON_STORE;
 	},
     enumerable: true,
     configurable: true
@@ -1030,7 +1115,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "AMAZON_STORE", 
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "NOOK_STORE", {
 	get: function() {
-		return CocoonJS.Store.StoreType.NOOK_STORE;
+		return Cocoon.Store.StoreType.NOOK_STORE;
 	},
     enumerable: true,
     configurable: true
@@ -1048,7 +1133,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "NOOK_STORE", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "PURCHASED", {
 	get: function() {
-		return CocoonJS.Store.PurchaseState.PURCHASED;
+		return Cocoon.Store.PurchaseState.PURCHASED;
 	},
     enumerable: true,
     configurable: true
@@ -1065,7 +1150,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "PURCHASED", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "CANCELLED", {
 	get: function() {
-		return CocoonJS.Store.PurchaseState.CANCELED;
+		return Cocoon.Store.PurchaseState.CANCELED;
 	},
     enumerable: true,
     configurable: true
@@ -1082,7 +1167,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "CANCELLED", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "REFUNDED", {
 	get: function() {
-		return CocoonJS.Store.PurchaseState.REFUNDED;
+		return Cocoon.Store.PurchaseState.REFUNDED;
 	},
     enumerable: true,
     configurable: true
@@ -1099,7 +1184,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "REFUNDED", {
 */
 Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "EXPIRED", {
 	get: function() {
-		return CocoonJS.Store.PurchaseState.EXPIRED;
+		return Cocoon.Store.PurchaseState.EXPIRED;
 	},
     enumerable: true,
     configurable: true
@@ -1122,7 +1207,7 @@ Object.defineProperty(Kiwi.Plugins.InAppPurchase.InAppPurchase, "EXPIRED", {
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.expirePurchase = function(transactionId) {
 	if(this.available && this.getStoreType() == this.MOCK_STORE && typeof transactionId != "undefined") {
-		CocoonJS.Store.expirePurchase(transactionId)
+		Cocoon.Store.expirePurchase(transactionId)
 	}
 }
 
@@ -1136,7 +1221,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.expirePurchase = function(tra
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.cancelPurchase = function(transactionId) {
 	if(this.available && this.getStoreType() == this.MOCK_STORE && typeof transactionId != "undefined") {
-		CocoonJS.Store.cancelPurchase(transactionId)
+		Cocoon.Store.cancelPurchase(transactionId)
 	}
 }
 
@@ -1150,6 +1235,6 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.cancelPurchase = function(tra
 */
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.refundPurchase = function(transactionId) {
 	if(this.available && this.getStoreType() == this.MOCK_STORE && typeof transactionId != "undefined") {
-		CocoonJS.Store.refundPurchase(transactionId)
+		Cocoon.Store.refundPurchase(transactionId)
 	}
 }

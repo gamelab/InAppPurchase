@@ -106,7 +106,7 @@ sierraShop.create = function() {
 		this.prods = JSON.parse( productFile.data );
 
 		//Fetch the products of iTunes
-		this.game.inAppPurchase.fetchProductsFromStore( this.prods );
+		this.game.inAppPurchase.loadProducts( this.prods );
 
 	} else {
 		//Display Error Message
@@ -368,7 +368,7 @@ sierraShop.displayShop = function() {
 **/
 sierraShop.purchase = function(btnOwner) {
 	if(this.allowPurchases) {
-		this.game.inAppPurchase.purchaseProduct( btnOwner.productId );
+		this.game.inAppPurchase.purchase( btnOwner.productId );
 	}
 }
 

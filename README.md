@@ -1,11 +1,11 @@
-# In-App Purchase Plugin
+# InAppPurchase Plugin for [Kiwi.JS](http://www.kiwijs.org)
 
 	Name: InAppPurchase Plugin.
-	Version: 1.0.0
+	Version: 1.1.0
 	Type: GameObject Plugin
-	Author: Kiwi.js Team
+	Author: KiwiJS Team
 	Website: www.kiwijs.org
-	KiwiJS last version tested: 1.0.0
+	KiwiJS last version tested: 1.4.0
 
 
 ## Description
@@ -18,6 +18,10 @@ If you have any problems then feel free to contact us via the [www.kiwijs.org](h
 
 
 ## Versions
+
+1.1.0
+- Updated to work with latest version of CocoonJS
+- Updated Kiwi Version
 
 1.0.0
 - Initial release

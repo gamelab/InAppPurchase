@@ -24,22 +24,18 @@ module.exports = function(grunt) {
     uglify: {
         build: {
             files: {
-              "src/InAppPurchase-<%= pkg.version %>.min.js": ["<%= pkg.main %>"]
+              "src/in-app-purchase-<%= pkg.version %>.min.js": ["<%= pkg.main %>"]
             }
         },
 
         intro: {
             files: {
-              "examples/intro/final/gamemin.js": [
-                "lib/CocoonJSExtensions/CocoonJS.js",
-                "lib/CocoonJSExtensions/CocoonJS_Ad.js",
-                "lib/CocoonJSExtensions/CocoonJS_App.js",
-                "lib/CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js",
-                "lib/CocoonJSExtensions/CocoonJS_Store.js",
-                "lib/kiwi.js",
-                "src/InAppPurchase-<%= pkg.version %>.js",
-                "lib/plugins/bitmapText-1.1.js",
-                "examples/intro/main.js"
+              'examples/intro/final/gamemin.js': [
+                'lib/cocoon.js',
+                'lib/kiwi.js',
+                'src/in-app-purchase-<%= pkg.version %>.js',
+                'lib/plugins/bitmapText-1.1.js',
+                'examples/intro/main.js'
               ]
             }
         },
@@ -47,13 +43,9 @@ module.exports = function(grunt) {
         sierra: {
             files: {
               "examples/sierra/final/gamemin.js": [
-                "lib/CocoonJSExtensions/CocoonJS.js",
-                "lib/CocoonJSExtensions/CocoonJS_Ad.js",
-                "lib/CocoonJSExtensions/CocoonJS_App.js",
-                "lib/CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js",
-                "lib/CocoonJSExtensions/CocoonJS_Store.js",
+                "lib/cocoon.js",
                 "lib/kiwi.js",
-                "src/InAppPurchase-<%= pkg.version %>.js",
+                "src/in-app-purchase-<%= pkg.version %>.js",
                 "examples/sierra/main.js"
               ]
             }
@@ -62,13 +54,9 @@ module.exports = function(grunt) {
         bootcamp: {
             files: {
               "examples/bootcamp/final/gamemin.js": [
-                "lib/CocoonJSExtensions/CocoonJS.js",
-                "lib/CocoonJSExtensions/CocoonJS_Ad.js",
-                "lib/CocoonJSExtensions/CocoonJS_App.js",
-                "lib/CocoonJSExtensions/CocoonJS_App_ForCocoonJS.js",
-                "lib/CocoonJSExtensions/CocoonJS_Store.js",
+                "lib/cocoon.js",
                 "lib/kiwi.js",
-                "src/InAppPurchase-<%= pkg.version %>.js",
+                "src/in-app-purchase-<%= pkg.version %>.js",
                 "lib/plugins/bitmapText-1.1.js",
                 "lib/plugins/saveManager-1.0.1.js",
                 "examples/bootcamp/classes.js",

@@ -105,7 +105,7 @@ introShop.create = function() {
 
 
 	//Query the store to see if any of the products are valid or not.
-	this.game.inAppPurchase.fetchProductsFromStore( prodIds );
+	this.game.inAppPurchase.loadProducts( prodIds );
 
 
 	//Controls whether this is the current state or not.
@@ -252,7 +252,7 @@ introShop.purchaseComplete = function(purchase) {
 
 		//Consume the purchase, so that we can purchase it again.
 		//In this shop all purchases are assumed to be 'consumables', and so we can buy them again.
-		this.game.inAppPurchase.consumePurchase( purchase );
+		this.game.inAppPurchase.consume( purchase );
 	}
 }
 
