@@ -92,7 +92,11 @@ sierraShop.create = function() {
 		//Fetch the products off of the App Store
 		this.allowPurchases = false;
 		if( !this.game.inAppPurchase.active ) {
-			this.game.inAppPurchase.init( this.prods, this.fetchCompleted, this );
+			var storeAvaliable = this.game.inAppPurchase.init( this.prods, this.fetchCompleted, this );
+
+			if( !storeAvaliable ) {
+				alert("The store can not be used on this platform sorry.");
+			}
 		} else {
 			this.game.inAppPurchase.fetchProducts( this.prods, this.fetchCompleted, this );
 		}

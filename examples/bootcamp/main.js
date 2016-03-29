@@ -1,11 +1,7 @@
 var bootcamp = new Kiwi.State('BootCamp');
 
-//Like the last example we are going to request product information from the products.php script, but this time we will be sending information about our platform. 
 var productURL = 'products.php';
 
-/**
-* The preload method gets called after the init method, and is in charge of loading all the assets required.
-**/
 bootcamp.preload = function() {
 
     //Backgrounds
@@ -45,9 +41,8 @@ bootcamp.preload = function() {
     this.addImage('bombInventory', 'images/bomb-inventory.png', false);
 
 
-
     //Request product information for the platform we are using. 
-    this.addJSON('products', productURL+'?s='+this.game.inAppPurchase.getStoreType(), false);
+    this.addJSON('products', productURL, false);
 }
 
 
@@ -59,22 +54,15 @@ bootcamp.preload = function() {
 bootcamp.init = function() {
 	this.purchasing = false;
 
-	this.game.inAppPurchase.onFetchFailed.add(this.fetchFailed, this);
-    this.game.inAppPurchase.onFetchComplete.add(this.fetchComplete, this);
     this.game.inAppPurchase.onPurchaseFailed.add(this.purchaseFailed, this);
     this.game.inAppPurchase.onPurchaseComplete.add(this.purchaseComplete, this);
-    this.game.inAppPurchase.onConsumeComplete.add(this.consumeComplete, this);
 
     //The ids of the products we will have on the store...
     this.productIds = [];
     this.productInfo = [];
 
-    //Final inAppPurchase Custom Items
-        this.game.inAppPurchase.addProducts = true;
-        this.game.inAppPurchase.autoConsume = true;
-
     //Initalise the store... managed mode - sandbox enviroment
-        this.game.inAppPurchase.init(false, true);
+    this.game.inAppPurchase.init(false, true);
 }
 
 
@@ -137,7 +125,6 @@ bootcamp.create = function() {
     this.creditUnderneathText.visible = false;
     this.creditUnderneathText.transform.scale = 0.5;
     this.courierText.maxWidth = 280;
-
 
 
     // A list of all the 'In Game' Products which users can buy using their 'war bonds'.
@@ -217,7 +204,7 @@ bootcamp.create = function() {
 
 
     //If the store is available and the products were loaded successfully loaded then we can continue.
-    if(this.game.inAppPurchase.available == true && this.data.products.hasError == false) {
+    if(this.data.products.hasError == false) {
 
     	//Retrieve the data.
     	var data = JSON.parse(this.data.products.data);
@@ -237,8 +224,9 @@ bootcamp.create = function() {
 			this.productIds.push( this.productInfo[i].id );
 		}
 
-	    this.game.inAppPurchase.loadProducts( this.productIds );
-        return;
+        if( this.game.inAppPurchase.init( this.productIds, this.fetchComplete, this ) ) {
+            return;
+        }
     } 
 
 	//Error management code, generic error inbound.
@@ -436,13 +424,18 @@ bootcamp.fetchFailed = function() {
 /**
 * When products have been validate from the platforms store.
 **/
-bootcamp.fetchComplete = function(products) {
+bootcamp.fetchComplete = function(error, products) {
+
+    if( error ) {
+        this.fetchFailed( error );
+        return;
+    }
 
 	//Loop through the avaiable products
-    for(var i = 0; i < this.game.inAppPurchase.products.length; i++) {
+    for(var i = 0; i < products.length; i++) {
 
     	//Check to see if that products we have available matches one we requested.
-        var prod = this.game.inAppPurchase.products[i];
+        var prod = products[i];
         var index = this.productIds.indexOf( prod.productId );
 
         //If so, then display the poster for that product
@@ -534,17 +527,6 @@ bootcamp.purchaseComplete = function(purchase) {
     }
 
 } 
-
-
-/**
-* The product was consumed so fully completed the transition.
-**/
-bootcamp.consumeComplete = function(transactionId) {
-
-    console.log( transactionId.productId + ' is ready to purchase again.' );
-    this.purchasing = false;
-
-}
 
 
 /**

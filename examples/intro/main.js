@@ -84,7 +84,11 @@ introShop.create = function() {
 
 	//Initialises the store and then fetches the products passed
 	// The fetchCompleted will be executed once it is ready,
-	this.game.inAppPurchase.init( prodIds, this.fetchCompleted, this );
+	var avaliable = this.game.inAppPurchase.init( prodIds, this.fetchCompleted, this );
+
+	if( !avaliable ) {
+		alert("The store can not be used on this platform sorry.");
+	}
 
 
 	// Controls whether this is the current state or not.
