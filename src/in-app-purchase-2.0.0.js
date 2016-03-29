@@ -71,7 +71,7 @@ Kiwi.Plugins.InAppPurchase.create = function(game) {
 	game.inAppPurchase = new Kiwi.Plugins.InAppPurchase.InAppPurchase(game);
 	
 	return game.inAppPurchase; //Boot method here...
-}
+};
 
 
 
@@ -85,7 +85,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase = function(game) {
 	*/
 	this.game = game;
 
-}
+};
 
 
 
@@ -97,145 +97,13 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase = function(game) {
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 
 	/**
-	* Your unique Identifier for your app. Not required. 
-	* Generally follows the convetion of com.yourcompany.appname
-	* @property bundleId
-	* @type string
+	* 
+	* @property available
+	* @type boolean
+	* @default false
 	* @public
 	*/
-	this.bundleId = null;
-	
-	/**
-	* The API version of the app that is being developed. Not required.
-	* @property apiVersion
-	* @type string
-	* @public
-	*/
-	this.apiVersion = null;
-	
-	//Create the callbacks
-	this._createCallbacks(); 
-
-}
-
-/**
-* Initalises the store (if it is avaiable) and starts the retrieval of products and purchases.
-* @method init
-* @return {Boolean}
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.init = function(callback, context) {
-
-	if( !Kiwi.Plugins.InAppPurchase.deviceReady ) {
-		if(this.game.debugOption == Kiwi.DEBUG_ON) console.log('Could not initialise Store.');
-	 	return false; 
-	}
-
-
-	if(this.game.debugOption == Kiwi.DEBUG_ON) {
-		Kiwi.Log.log( 'Initialisation Starting', '#inAppPurchase' );
-	}
-
-	this._startEvents();
-
-	Cocoon.InApp.initialize({
-    	autofinish: true
-	}, function( error ) {
-
-		if( callback ) {
-			callback.call(context, error );
-		}
-
-	});
-
-	return true;
-}
-
-
-/**
-* Request a product purchase given it's product id. 
-* @method purchase
-* @param productId {String} The Id of the product that is being requested to be brought.
-* @public
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.purchase = function(productId) {
-
-	if(typeof productId == "undefined" || this.available == false || Cocoon.Store.canPurchase() == false) {
-		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase of a product could not be preformed.', '#inAppPurchase');
-		return;
-	}
-	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase of a product started.', '#inAppPurchase' );
-
-	Cocoon.Store.purchase(productId);
-}
-
-
-/**
-* Returns a boolean indicating whether or not a product has been purchased or not. 
-* @method isPurchased
-* @param productId {string} The id of the product you are wanting to purchase.
-* @return {Boolean} Returns a boolean indicating whether the product has been brought or not.
-* @public
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.isPurchased = function(productId) {
-	if(this.available == false || typeof productId == "undefined") return false;
-
-	return Cocoon.Store.isProductPurchased(productId);
-}
-
-
-/**
-* "Consumes" a purchase, allowing it to be purchased again. Currently only used for the Play Store. 
-* Use to prevent 'You already own this product' errors.
-* Make sure when you use this method you also add event listeners to the onConsumeStarted, onConsumeCompleted and onConsumeFailed methods.
-* Note: When a purchase is consumed that product can no longer be restored.
-* @method consume
-* @param purchase {Object} The purchase that you want to consume.
-* @public
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.consume = function(purchase) {
-	if(typeof purchase == "undefined" || this.available == false) return;
-
-	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Consumation Process Starting', '#inAppPurchase' );
-
-	Cocoon.Store.consume(purchase.transactionId, purchase.productId);
-}
-
-
-/**
-* Restoring the purchases is the way of returning purchased items information from the platform Store.
-* Only certain purchases can be restored. See http://wiki.ludei.com/cocoonjs:extensions:store or you platform store for more detail.
-* @method restorePurchases
-* @public
-* @deprecated
-* @since 1.1.0
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.restore = function() {
-	if(this.available == true) { 
-		if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log( 'Purchase Restoration Started.', '#inAppPurchase' );
-		Cocoon.Store.restore();
-	}
-}
-
-
-/**
-* The type of object that this is.
-* @method objType
-* @return {String}
-* @public
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.objType = function() {
-	return 'inAppPurchase';
-}
-
-
-//-------------------------------------------------------------------------------------------------------------- CALLBACKS AND EVENTS
-
-/**
-* Initalises the callbacks that the users have access to through this plugin.
-* @method _createCallbacks
-* @public
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._createCallbacks = function() {
+	this.available = false;
 
 	/**
 	* @property onPurchaseStartedCallback
@@ -263,37 +131,209 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._createCallbacks = function()
 
 }
 
+Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
+
+	objType: function() {
+
+		/**
+		* The type of object that this is.
+		* @method objType
+		* @return {String}
+		* @public
+		*/
+
+		return 'inAppPurchase';
+	},
+
+	log: function( message ) {
+
+		/**
+		* 
+		* @method log
+		* @param message {String}
+		*/
+
+		if( this.game.debugOption === Kiwi.DEBUG_ON ) {
+			Kiwi.Log.log( 'IAP:', message, '#inAppPurchase' );
+		}
+
+	},
+
+	active: function() {
+
+		/**
+		*
+		* @method active
+		* @return {Boolean}
+		*/
+
+		return ( 
+			Kiwi.Plugins.InAppPurchase.deviceReady && 
+			this.available &&
+			Cocoon.InApp.canPurchase() );
+
+	},
+
+	init: function(callback, context) {
+
+		/**
+		* Initalises the store (if it is avaiable) and starts the retrieval of products and purchases.
+		* @method init
+		* @return {Boolean}
+		*/
+
+		if( !Kiwi.Plugins.InAppPurchase.deviceReady ) {
+			if(this.game.debugOption == Kiwi.DEBUG_ON) {
+				this.log('Could not initialise store. Device not ready yet.');
+			}
+		 	return false; 
+		}
+
+		if( typeof Cocoon == "undefined" || typeof Cocoon.InApp == "undefined" ) {
+			this.log("Could not initialise store. Cocoon Namespaces not found.");
+			return false; 
+		}
+
+		this.log( 'Initialisation Starting' );
+		this._startEvents();
+
+		var self = this;
+		Cocoon.InApp.initialize( {
+	    	autofinish: true
+		}, function( error ) {
+
+			self.available = !!(error);
+
+			if( callback ) {
+				callback.call(context, error );
+			}
+
+		} );
+
+		return true;
+	},
+
+	purchase: function( productId, quantity, callback, context ) {
+
+		/**
+		* Request a product purchase given it's product id. 
+		* @method purchase
+		* @param productId {String} The Id of the product that is being requested to be brought.
+		* @public
+		*/
+
+		if( !this.active() ) {
+			this.log( "Purchase of a product can't be performed" );
+			return;
+		}
+
+		this.log( 'Purchase of a product started' );
+
+		if( typeof quantity === "undefined" ) {
+			quantity = 1;
+		}
+
+		Cocoon.InApp.purchase( productId, quantity, function( error ) {
+
+			if( callback ) {
+				callback.call( context, error );
+			}
+
+		});
+	}, 
+
+	isPurchased = function( productId ) {
+
+		/**
+		* Returns a boolean indicating whether or not a product has been purchased or not. 
+		* 
+		* @method isPurchased
+		* @param productId {string} The id of the product you are wanting to purchase.
+		* @return {Boolean} Returns a boolean indicating whether the product has been brought or not.
+		* @public
+		*/
+
+		if( !this.active() ) {
+			return false;
+		}
+
+		return Cocoon.InApp.isPurchased( productId );
+
+	},
+
+	consume: function(productId, quantity, callback, context) {
+
+		if( !this.active() ) {
+			this.log( 'Purchase comsume process failed.' );
+			if( callback ) {
+				callback.call( context, 0, 'Purchase not ready.' );
+			}
+			return;
+		}
+
+		if( typeof quantity === "undefined" ) {
+			quantity = 1;
+		}
+
+		this.log("Consuming " + quantity + " " + productId );
+
+		Cocoon.InApp.consume( productId, quantity, function(consumed, error) {
+
+			if( callback ) {
+				callback.call( context, consumed, error );
+			}
+
+		});
+
+	},
+
+	restore: function() {
+
+		/**
+		* Starts the purchase restoration process.
+		* @method restore
+		*/
+
+		if( !this.active() ) {
+			this.log("Purchase restore process failed.");
+			return;
+		}
+
+		this.log("Restore process starting.");
+
+		Cocoon.InApp.restorePurchases();
+
+	},
+
+	_startEvents: function() {
+
+		/**
+		* Adds event listeners to the store. 
+		* This is applyed during the init method of the app and is a internal method only.
+		* @method _startEvents
+		* @private
+		*/
+
+		var self = this;
+
+		Cocoon.InApp.on("purchase", {
+			start: function(productId) {
+				self.log("Purchase started: " + productId );
+				self.onPurchaseStarted.dispatch( productId );
+			},
+			error: function(productId, error) {
+				console.log("purchase failed " + productId + " error: " + JSON.stringify(error));
+				self.log("Purchase failed: " + productId + " " + error );
+				self.onPurchaseFailed.dispatch(productId, error);
+			},
+			complete: function(purchase) {
+				self.log("Purchase completed: " + purchase.producyId );
+				self.onPurchaseComplete.dispatch(purchase);
+			}
+		});
 
 
-/**
-* Adds event listeners to the cocoon store. This is applyed during the init method of the app and is a internal method only.
-* @method _startEvents
-* @public
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._startEvents = function() {
-	//Purchase Events 
-	Cocoon.Store.onProductPurchaseStarted.addEventListener( this._onProductPurchaseStarted.bind(this) );
-	Cocoon.Store.onProductPurchaseFailed.addEventListener( this._onProductPurchaseFailed.bind(this) );
-	Cocoon.Store.onProductPurchaseCompleted.addEventListener( this._onProductPurchaseCompleted.bind(this) );
-}
+	},
 
+};
 
-//Purchase Events
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseStarted = function(productId) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Product Purchase Started: '+productId, '#inAppPurchase');	
-
-	this.onPurchaseStarted.dispatch(productId);
-}
-
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseFailed = function(productId, error) {
-	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Product Purchase of '+productId+ ' failed: '+error, '#inAppPurchase');
-
-	this.onPurchaseFailed.dispatch(productId, error);
-}
-
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype._onProductPurchaseCompleted = function(purchase) {
-
-	if(this.game.debugOption == Kiwi.DEBUG_ON) Kiwi.Log.log('Purchase Completed: '+purchase.productId, '#inAppPurchase');
- 
-	this.onPurchaseComplete.dispatch(purchase);
-}
