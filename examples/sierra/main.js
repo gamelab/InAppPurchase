@@ -5,16 +5,8 @@
 **/
 var productURL = 'products.php';
 
-
-/**
-* The sierra shop state
-**/
 var sierraShop = new Kiwi.State('sierraShop');
 
-
-/**
-* Load the assets in.
-**/
 sierraShop.preload = function() {
 	
 	this.addSpriteSheet('adore64', 'images/adore64-atlas.png', 16, 30);
@@ -49,17 +41,10 @@ sierraShop.preload = function() {
 **/
 sierraShop.init = function() {
 
-	//Callbacks
-	this.game.inAppPurchase.onFetchStarted.add(this.fetchStarted, this);
-	this.game.inAppPurchase.onFetchFailed.add(this.fetchFailed, this);
-	this.game.inAppPurchase.onFetchComplete.add(this.fetchCompleted, this); 
-
 	this.game.inAppPurchase.onPurchaseStarted.add(this.purchaseStarted, this);
 	this.game.inAppPurchase.onPurchaseFailed.add(this.purchaseFailed, this);
 	this.game.inAppPurchase.onPurchaseComplete.add(this.purchaseComplete, this);
 	
-	//Start Store - managed / sandbox
-	this.game.inAppPurchase.init(true, true);
 }
 
 
@@ -89,8 +74,6 @@ sierraShop.create = function() {
 	//This is mainly to prevent people purchasing products whilst another process is happening.
 	this.allowPurchases = false;
 
-
-
 	/**
 	* After loading using the 'addJson' method, any data will be saved into 'this.data'. Much like how images are added to 'this.textures'.
 	* When accessing 'this.data.products' it will return to you the Kiwi File which was generated.
@@ -105,13 +88,18 @@ sierraShop.create = function() {
 		//Get the raw Blob data and transform it into json.
 		this.prods = JSON.parse( productFile.data );
 
-		//Fetch the products of iTunes
-		this.game.inAppPurchase.loadProducts( this.prods );
+
+		//Fetch the products off of the App Store
+		this.allowPurchases = false;
+		if( !this.game.inAppPurchase.active ) {
+			this.game.inAppPurchase.init( this.prods, this.fetchCompleted, this );
+		} else {
+			this.game.inAppPurchase.fetchProducts( this.prods, this.fetchCompleted, this );
+		}
 
 	} else {
 		//Display Error Message
 		alert('Information about the products could not be fetched at this time. Please try again later.');
-
 	}
 
 }
@@ -249,58 +237,35 @@ sierraShop.generateText = function(text, x, y, width) {
 
 
 /**
-* Executed when the fetch process has started
-**/
-sierraShop.fetchStarted = function() {
-	this.allowPurchases = false;
-}
-
-
-/**
 * Executed when fetching the products from iTunes connect failed.
 **/
 sierraShop.fetchFailed = function() {
 	//Fetch failed. Error management here.
 	alert('We could not fetch any product information at this point. Please try again later.');
-	
 	//You own custom error management code would go here.
-
 }
 
 
 /**
 * Executed whn the products have been successfully retrieved.
 **/
-sierraShop.fetchCompleted = function(products) {
+sierraShop.fetchCompleted = function(error, products) {
 
-	// If the products in your shop maybe updating all time, with old ones being removed and new ones added, 
-	// before you add the products to the local database, you could always remove some of the using the 'removeProduct' method. 
-	// This would insure that products that either were not fetched, or no longer exist don't appear
-	
-	// Example
-	
-	for(var i = 0; i < this.game.inAppPurchase.products.length; i++) {
-		var product = this.game.inAppPurchase.products[i];
-		this.game.inAppPurchase.removeProduct(product.productId);
-	}
-	
-
-	//Loop through the products and add them to the local database
-	for(var i = 0; i < products.length; i++) {
-		this.game.inAppPurchase.addProduct( products[i] );
+	if( error ) {
+		this.fetchFailed( error );
+		return;
 	}
 
 	//Allow products to be purchased again
 	this.allowPurchases = true;
-
-	this.displayShop();
+	this.displayShop( products );
 }
 
 
 /**
 * Updates or Intially displays the shop as well as any products that we want to display on the shop.
 **/
-sierraShop.displayShop = function() {
+sierraShop.displayShop = function( products ) {
 
 	//Destroy all of the products that are currently being displayed.
 	for(var i = 0; i < this.prodsGroup.members.length; i++) {
@@ -310,9 +275,9 @@ sierraShop.displayShop = function() {
 
 	//Loop through the database and validate the avaiable products
 	var y = 75;
-	for(var prods = 0; prods < this.game.inAppPurchase.products.length; prods++) {
+	for(var prods = 0; prods < products.length; prods++) {
 
-		var currentProd = this.game.inAppPurchase.products[prods];
+		var currentProd = products[prods];
 
 		//Create the GameObjects
 		var go = new Kiwi.GameObjects.StaticImage(this, this.textures.singleSword, 20, y);
@@ -326,7 +291,7 @@ sierraShop.displayShop = function() {
 
 		// For this example, all the products can only purchase once.
 		// So we will first check to see if we have purchased any.
-		if(this.game.inAppPurchase.isPurchased( currentProd.productId )) {
+		if( this.game.inAppPurchase.isPurchased( currentProd.productId ) ) {
 
 			//If we have, then display the 'brought' button
 			var btn = new Kiwi.GameObjects.Sprite(this, this.textures.brought, 520, y);
@@ -335,7 +300,7 @@ sierraShop.displayShop = function() {
 
 			//If not displayed the 'buy now' button
 			var btn = new Kiwi.GameObjects.Sprite(this, this.textures.buyNow, 520, y, true);
-			btn.productId = this.game.inAppPurchase.products[prods].productId;
+			btn.productId = products[prods].productId;
 			btn.input.onUp.add(this.purchase, this);
 		
 		}
@@ -399,12 +364,7 @@ sierraShop.purchaseFailed = function(error) {
 sierraShop.purchaseComplete = function(purchase) {
 
 	//Display a THANKS message if the purchase was successful
-	if(purchase.purchaseState == Kiwi.Plugins.InAppPurchase.InAppPurchase.PURCHASED) {
-		alert('Thanks for purchasing ' + this.game.inAppPurchase.getProductById(purchase.productID).title);
-		
-		//The rest of your CUSTOM CODE for dealing with purchases would go here.
-
-	}
+	alert('Thanks for purchasing ' + this.game.inAppPurchase.productForId( purchase.productId ).title);
 
 	//Refresh the screen
 	this.displayShop();
