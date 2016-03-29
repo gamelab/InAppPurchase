@@ -44,8 +44,8 @@ Kiwi.Plugins.InAppPurchase = {
 
 };
    
-
 Kiwi.PluginManager.register(Kiwi.Plugins.InAppPurchase);
+
 
 document.addEventListener('deviceready', function() {
 
@@ -97,6 +97,8 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase = function(game) {
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 
 	/**
+	* If the IAPs are ready to be purchased or not. 
+	* Will be false if the `init` method is yet to be executed.
 	* 
 	* @property active
 	* @type boolean
@@ -107,6 +109,8 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 	this.active = false;
 
 	/**
+	* Executed when a purchase is being made.
+	*
 	* @property onPurchaseStartedCallback
 	* @type Function
 	* @default null
@@ -115,6 +119,8 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 	this.onPurchaseStarted = new Kiwi.Signal();
 
 	/**
+	* Executed when a purchase failed to complete.
+	* 
 	* @property onPurchaseFailedCallback
 	* @type Function
 	* @default null
@@ -123,6 +129,8 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 	this.onPurchaseFailed = new Kiwi.Signal();
 
 	/**
+	* Executed when a purchase was successful.
+	* 
 	* @property onPurchaseCompleteCallback
 	* @type Function
 	* @default null
@@ -297,7 +305,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		});
 	}, 
 
-	isPurchased = function( productId ) {
+	isPurchased: function( productId ) {
 
 		/**
 		* Returns a boolean indicating whether or not a product has been purchased or not. 
