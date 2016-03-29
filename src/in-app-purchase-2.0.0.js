@@ -98,12 +98,13 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
 
 	/**
 	* 
-	* @property available
+	* @property active
 	* @type boolean
 	* @default false
+	* @readOnly
 	* @public
 	*/
-	this.available = false;
+	this.active = false;
 
 	/**
 	* @property onPurchaseStartedCallback
@@ -148,6 +149,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 	log: function( message ) {
 
 		/**
+		* Shortcut to log a message with fixed information related to this plugin added.
 		* 
 		* @method log
 		* @param message {String}
@@ -159,38 +161,42 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 	},
 
-	active: function() {
+	available: function() {
 
 		/**
-		*
-		* @method active
+		* Returns a flag indicating if IAP methods can be executed or not.
+		* 
+		* @method available
 		* @return {Boolean}
 		*/
 
 		return ( 
 			Kiwi.Plugins.InAppPurchase.deviceReady && 
-			this.available &&
+			this.active &&
 			Cocoon.InApp.canPurchase() );
 
 	},
 
-	init: function(callback, context) {
+	init: function(productIds, callback, context) {
 
 		/**
-		* Initalises the store (if it is avaiable) and starts the retrieval of products and purchases.
+		* Initalises the store if it is avaiable. 
+		* Starts fetching products from the store if an array of productIds were passed. 
+		* 
 		* @method init
+		* @param [productIds] {Array} 
+		* @param [callback] {Function} 
+		* @param [context] {Any} 
 		* @return {Boolean}
 		*/
 
 		if( !Kiwi.Plugins.InAppPurchase.deviceReady ) {
-			if(this.game.debugOption == Kiwi.DEBUG_ON) {
-				this.log('Could not initialise store. Device not ready yet.');
-			}
+			this.log('Could not initialise store. Device not ready yet');
 		 	return false; 
 		}
 
 		if( typeof Cocoon == "undefined" || typeof Cocoon.InApp == "undefined" ) {
-			this.log("Could not initialise store. Cocoon Namespaces not found.");
+			this.log("Could not initialise store. Cocoon Namespaces not found");
 			return false; 
 		}
 
@@ -202,28 +208,77 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 	    	autofinish: true
 		}, function( error ) {
 
-			self.available = !!(error);
+			self.active = !!(error);
 
-			if( callback ) {
-				callback.call(context, error );
-			}
+			if( !productIds || error ) {
+
+				if( callback ) {
+					callback.call(context, error );
+				}
+
+				return;
+			} 
+
+			self.log("Store successfully started");
+			self.fetchProducts( productIds, callback, context );
 
 		} );
 
 		return true;
 	},
 
+	fetchProducts: function(productIds, callback, context) {
+
+		/**
+		* Validates the productIds passed.
+		* 
+		* @method fetchProducts
+		* @param productIds {Array}
+		* @param [callback] {Function}
+		* @param [context] {Any}
+		*/
+
+		if( !this.available() ) {
+			this.log( "Fetch can't be performed" );
+			if( callback ) {
+				callback.call( context, "Device doesn't support IAP" );
+			}
+			return;
+		}
+
+		this.log("Fetching products from store");
+
+		Cocoon.InApp.fetchProducts( productIds, function( products, error ) {
+
+			if( error ) {
+				this.log("Fetch products failed:" + error);
+			}
+
+			if( callback ) {
+				callback.call( context, error, products );
+			}
+
+		} );
+
+	},
+
 	purchase: function( productId, quantity, callback, context ) {
 
 		/**
 		* Request a product purchase given it's product id. 
+		* 
 		* @method purchase
-		* @param productId {String} The Id of the product that is being requested to be brought.
-		* @public
+		* @param productId {String} 
+		* @param [quantity=1] {Number}
+		* @param [callback] {Function}
+		* @param [context] {Any} 
 		*/
 
-		if( !this.active() ) {
+		if( !this.available() ) {
 			this.log( "Purchase of a product can't be performed" );
+			if( callback ) {
+				callback.call( context, "Device doesn't support IAP" );
+			}
 			return;
 		}
 
@@ -249,11 +304,10 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		* 
 		* @method isPurchased
 		* @param productId {string} The id of the product you are wanting to purchase.
-		* @return {Boolean} Returns a boolean indicating whether the product has been brought or not.
-		* @public
+		* @return {Boolean} Returns a boolean indicating whether the product has been brought or not
 		*/
 
-		if( !this.active() ) {
+		if( !this.available() ) {
 			return false;
 		}
 
@@ -263,10 +317,20 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 	consume: function(productId, quantity, callback, context) {
 
-		if( !this.active() ) {
+		/**
+		* Consumes a product so that it can be purchased again. Android only.
+		* 
+		* @method consume
+		* @param productId {String}
+		* @param [quantity=1] {Number}
+		* @param [callback] {Function}
+		* @param [context] {Any}
+		*/
+
+		if( !this.available() ) {
 			this.log( 'Purchase comsume process failed.' );
 			if( callback ) {
-				callback.call( context, 0, 'Purchase not ready.' );
+				callback.call( context, 0, "Device doesn't support IAP" );
 			}
 			return;
 		}
@@ -280,7 +344,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		Cocoon.InApp.consume( productId, quantity, function(consumed, error) {
 
 			if( callback ) {
-				callback.call( context, consumed, error );
+				callback.call( context, error, consumed );
 			}
 
 		});
@@ -290,11 +354,12 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 	restore: function() {
 
 		/**
-		* Starts the purchase restoration process.
+		* Starts the purchase restoration process
+		* 
 		* @method restore
 		*/
 
-		if( !this.active() ) {
+		if( !this.available() ) {
 			this.log("Purchase restore process failed.");
 			return;
 		}
@@ -324,7 +389,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 			error: function(productId, error) {
 				console.log("purchase failed " + productId + " error: " + JSON.stringify(error));
 				self.log("Purchase failed: " + productId + " " + error );
-				self.onPurchaseFailed.dispatch(productId, error);
+				self.onPurchaseFailed.dispatch(error, productId);
 			},
 			complete: function(purchase) {
 				self.log("Purchase completed: " + purchase.producyId );
