@@ -1,7 +1,7 @@
 # InAppPurchase Plugin for [Kiwi.JS](http://www.kiwijs.org)
 
 	Name: InAppPurchase Plugin.
-	Version: 1.1.0
+	Version: 2.0.0
 	Type: GameObject Plugin
 	Author: KiwiJS Team
 	Website: www.kiwijs.org
@@ -10,7 +10,7 @@
 
 ## Description
 
-Bring CocoonJS in-app purchase functionality into KiwiJS. Execute Cocoon code more easily, and access products and purchases across the entire game without having to add your own custom management classes.
+Allows easier access to the the Cocoon in-app purchase functionality into KiwiJS. Access products and purchases across the entire game without having to add your own custom management classes.
 
 We suggest you use the [Save Game plugin](https://github.com/gamelab/Save-Manager-Plugin) alongside the In-App Purchase plugin. This allows you to save purchases and currency to `localstorage` on the user's device.
 
@@ -18,6 +18,9 @@ If you have any problems then feel free to contact us via the [www.kiwijs.org](h
 
 
 ## Versions
+
+2.0.0
+- Refactored API to use latest Cocoon.io plugins.
 
 1.1.0
 - Updated to work with latest version of CocoonJS
@@ -29,13 +32,13 @@ If you have any problems then feel free to contact us via the [www.kiwijs.org](h
 
 ## Dependencies
 
-- CocoonJS Premium Account
+- Cocoon.io Account
+- Cordova
 
 
 ## Tutorials:
 
 For examples, tutorials, and more information about the In-App Purchasing plugin, visit the [documentation](http://www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation/) page.
-
 
 ## Examples:
 
@@ -59,18 +62,13 @@ Bootcamp is a more robust example. In this example, we are using the platform's 
 
 Copy either `cocoonInAppPurchase.js` or `cocoonInAppPurchase.min.js` into your project directory. We recommend that you save the files under a `plugins/` directory that lives inside of your project directory, so that you can easily manage all of your plugins, but that is not required.
 
-Now copy across the `CocoonJSExtensions/` folder. You can either put the Extensions folder inside the plugins folder where we put `cocoonInAppPurchase.js`, or you can put it next to the `plugins/` directory, as the files inside of `CocoonJSExtensions/` are not exclusive to this plugin.
-
-
 ### Second Step
 
-Firstly link in all of the javascript files inside of the `CocoonJSExtensions/` folder in the following order. To be safe include these above `kiwi.js` and your own game code :)
+Link in:
 
-- CocoonJS.js
-- CocoonJS_Ad.js
-- CocoonJS_App.js
-- CocoonJS_App_ForCocoonJS.js
-- CocoonJS_Store.js
+`cordova.js`
+`kiwi.js`
+`cocoonInAppPurchase.js`
 
 Link in the JavaScript file (`cocoonInAppPurchase.js` or the min version of the file) into your HTML file. Make sure you link it in _underneath_ the link to `kiwi.js` AND underneath all of the Cocoon files.
 
@@ -92,94 +90,3 @@ If you are using more than one plugin, such as the Save Game manager, make sure 
 
 Now that you have successfully included the plugin, you can start using it. Just access `game.inAppPurchase`!
 
-
-## Take Note!
-
-* This app will only work if you are making CocoonJS apps and are targeting Cocoon when creating your games. Otherwise unexpected results will happen and the in app purchasing may not work.
-
-* You will still need to have some knowledge of the various markets with the different types of products, and how they are handled/what they can do. We have tutorials on the Kiwi.JS website to help you with that. [www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation](http://www.kiwijs.org/documentation/tutorials/in-app-purchase-documentation/)
-
-* All callbacks are Kiwi Signals, and so take this into account when you try to add callbacks to each property.
-
-
-## Technical Data
-
-
-### Purchase / Product Objects
-
-Throughout the plugin and its process two types of object are consistently used: Purchase and Product objects. The following documents the various indexs/namespaces located on them.
-
-Purchase Object
-* transactionId
-* purchaseTime
-* purchaseState - (See below for documentation)
-* productId
-* quantity
-
-
-Product Object
-* productId
-* productAtlas
-* productType - (See below for documentation)
-* title
-* description
-* price
-* localizedPrice - The localized price of the product if appropriate.
-* downloadURL - The URL of any assets needing to be downloaded, can be blank.
-
-
-### Product Types
-
-A brief list containing the different types of products. See market/platform documentation for more information.
-
-* CONSUMABLE - 0
-* NON-CONSUMABLE - 1
-* AUTO_RENEWABLE_SUBSCRIPTION - 2
-* FREE_SUBSCRIPTION - 3
-* NON_RENEWABLE_SUBSCRIPTION - 4
-
-Note: Each product object contains a "productType" index. That index is a number that relates to one of the following on the list above. You can detiremine what a type of product is through STATIC properties located on "Kiwi.Plugins.CocoonInAppPurchase.InAppPurchase.PRODUCT_TYPE"
-
-
-### Store Types
-
-When developing your app you may need to change certain implementations depending on the type of store. You can get the store being used through either the "storeType" property or the "getStore" method on the "inAppPurchase" object.
-
-* APP_STORE - 0
-* PLAY_STORE - 1
-* MOCK_STORE - 2
-* CHROME_STORE - 3
-* AMAZON_STORE - 4
-* NOOK_STORE - 5
-
-You can access these STATIC versions of these numbers with the corresponding store type through "Kiwi.Plugins.CocoonInAppPurchase.InAppPurchase.STORE_TYPE"
-
-
-### Purchase States
-
-When a purchase is complete a `purchaseState` will be on the `purchase` object containing whether the purchase was a success or not.
-
-* PURCHASED - 0
-* CANCELED - 1
-* REFUNDED - 2
-* EXPIRED - 3
-
-You can access STATIC versions of these numbers with the corresponding numbers through `Kiwi.Plugins.CocoonInAppPurchase.InAppPurchase.PURCHASE_STATE`.
-
-
-### Testing Methods
-
-While testing out your app, you will want to make sure that if the user declines at any part of the transaction, your app will still work. These methods are there to help out with that.
-
-Note: The following methods are used only in the development/testing stages and will NOT work in a production enviroment.
-
-```js
-// Simulates the refunding of a purchase.
-this.game.inAppPurchase.refundPurchase( transactionId );
-
-// Simulates the cancelation of a purchase.
-this.game.inAppPurchase.cancelPurchase( transactionId );
-
-// Simulates the expiration of a purchase
-this.game.inAppPurchase.expirePurchase( transactionId );
-```

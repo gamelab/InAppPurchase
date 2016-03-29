@@ -23,7 +23,7 @@ Kiwi.Plugins.InAppPurchase = {
     * @type String
     * @public
     */
-    version: '1.1.0',
+    version: '2.0.0',
 
     /**
     * The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format
