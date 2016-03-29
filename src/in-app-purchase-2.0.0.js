@@ -316,6 +316,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		*/
 
 		if( !this.available() ) {
+			this.log( "isPurchase can't be performed" );
 			return false;
 		}
 
@@ -378,7 +379,49 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 	},
 
-	
+	productForId: function(productId) {
+
+		/**
+		* Returns the product information relating to the productId passed. 
+		* 
+		* @method productForId
+		* @param productId {string} The id of the product you wanting to get.
+		* @return {Object} 
+		*/
+
+		if( !this.available() ) {
+			this.log( "isPurchase can't be performed" );
+			return false;
+		}
+
+		return Cocoon.InApp.productForId( productId );
+
+	},
+
+	setValidationHandler: function(callback, context) {
+
+		/**
+		* Sets a the validation handler callback to be executed 
+		* when products need validation 
+		* 
+		* @method setValidationHandler
+		* @param callback {Function} Will be passed 
+		* @param [context] {Any}
+		*/
+
+		if( !this.available() ) {
+			this.log( "setValidationHandler can't be performed" );
+			return false;
+		}
+
+		Cocoon.InApp.setValidationHandler(function(receipt, productId, completion){
+
+			this.log("Validation needed for " + receipt);
+			callback.call( context, receipt, productId, completion );
+			
+		});
+
+	},
 
 	_startEvents: function() {
 
