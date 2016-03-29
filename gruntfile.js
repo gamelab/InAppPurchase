@@ -31,7 +31,6 @@ module.exports = function(grunt) {
         intro: {
             files: {
               'examples/intro/final/gamemin.js': [
-                'lib/cocoon.js',
                 'lib/kiwi.js',
                 'src/in-app-purchase-<%= pkg.version %>.js',
                 'lib/plugins/bitmapText-1.1.js',
@@ -43,7 +42,6 @@ module.exports = function(grunt) {
         sierra: {
             files: {
               "examples/sierra/final/gamemin.js": [
-                "lib/cocoon.js",
                 "lib/kiwi.js",
                 "src/in-app-purchase-<%= pkg.version %>.js",
                 "examples/sierra/main.js"
@@ -54,7 +52,6 @@ module.exports = function(grunt) {
         bootcamp: {
             files: {
               "examples/bootcamp/final/gamemin.js": [
-                "lib/cocoon.js",
                 "lib/kiwi.js",
                 "src/in-app-purchase-<%= pkg.version %>.js",
                 "lib/plugins/bitmapText-1.1.js",

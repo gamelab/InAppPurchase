@@ -492,7 +492,7 @@ bootcamp.fetchComplete = function(error, products) {
 /**
 * This method is called when a purchase has failed.
 **/
-bootcamp.purchaseFailed = function(productId, error) {
+bootcamp.purchaseFailed = function(error, productId) {
 
     //Display POP-UP that the purchase failed. 
     //Perhaps not want to do each time as events fire for user cancellation
