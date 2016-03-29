@@ -1,16 +1,7 @@
-
-
-/* 
-* Create a new Kiwi State which we are going ot use for our shop.
-*/
 var introShop = new Kiwi.State('introShop');
 
-
-/*
-* Preload method is executed each tiem the state is switched to.
-* Controls the loading of images/assets and will be executed each time this state is switched to.
-*/
 introShop.preload = function() {
+
 	//Background Image
 	this.addImage('bg', 'images/background.png', false);
 	
@@ -28,10 +19,6 @@ introShop.preload = function() {
 }
 
 
-/*
-* The init method will only be executed once, which is the first time the state is switched to. 
-* In this case we are going to let it handle the initalisation of the store and adding events. 
-*/
 introShop.init = function() {
 
 	/**
@@ -53,19 +40,10 @@ introShop.init = function() {
 	//The default image
 	this.defaultImage = 'default';
 
-
-	//Callbacks
-	this.game.inAppPurchase.onFetchFailed.add(this.fetchFailed, this);
-	this.game.inAppPurchase.onFetchComplete.add(this.fetchCompleted, this); 
-
+	//Add callbacks to the IAP plugin
 	this.game.inAppPurchase.onPurchaseStarted.add(this.purchaseStarted, this);
 	this.game.inAppPurchase.onPurchaseFailed.add(this.purchaseFailed, this);
 	this.game.inAppPurchase.onPurchaseComplete.add(this.purchaseComplete, this);
-
-	
-	//Initialise the store, Here we are going to launch into the managed mode and a sandbox enviroment
-	this.game.inAppPurchase.init(true, true);
-	this.game.addProducts = true; //When products have been fetched, 
 
 }
 
@@ -96,20 +74,21 @@ introShop.create = function() {
 	this.addChild(this.statusFailed);
 
 
-	//Loop through the 'products' we want and get just the product ids.
-	//This is so that we can then fetch all the valid products off the store.
+	// Loop through the 'products' and get just the product ids.
+	// This is because we need to validate them through the app store.
 	var prodIds = [];
 	for(var i = 0; i < this.products.length; i++ ) {
 		prodIds.push( this.products[i].productId );
 	}
 
 
-	//Query the store to see if any of the products are valid or not.
-	this.game.inAppPurchase.loadProducts( prodIds );
+	//Initialises the store and then fetches the products passed
+	// The fetchCompleted will be executed once it is ready,
+	this.game.inAppPurchase.init( prodIds, this.fetchCompleted, this );
 
 
-	//Controls whether this is the current state or not.
-	//We have this because the callbacks for the IAP events could happen at anytime.
+	// Controls whether this is the current state or not.
+	// We have this because the callbacks for the IAP events could happen at anytime.
 	this.isCurrentState = true; 
 }
 
@@ -126,11 +105,14 @@ introShop.fetchFailed = function() {
 
 
 /*
-* Is executed when the fetch process for valid products is a success.
-* This method is passed an array of valid products 
+* Is executed when the fetch process for the products is a success.
 */
-introShop.fetchCompleted = function(products) {
+introShop.fetchCompleted = function(error, products) {
 
+	if( error ) {
+		this.fetchFailed();
+		return;
+	}
 
 	//If this is not the current state then don't bother to do anything.
 	//Products fetch are automatically added to the local database. 
@@ -138,9 +120,9 @@ introShop.fetchCompleted = function(products) {
 
 
 	//Loop through the products that are available and match them up-to products that are on the stop
-	for(var prods = 0; prods < this.game.inAppPurchase.products.length; prods++) {
+	for(var prods = 0; prods < products.length; prods++) {
 
-		var currentProduct = this.game.inAppPurchase.products[prods];
+		var currentProduct = products[ prods ];
 		var image = this.defaultImage;
 
 		for(var j = 0; j < this.products.length; j++) {
@@ -218,7 +200,7 @@ introShop.displayStatus = function(number) {
 **/
 introShop.purchase = function(btnOwner) {
 	if(this.isCurrentState) {
-		this.game.inAppPurchase.purchaseProductModalWithPreview( btnOwner.productId );
+		this.game.inAppPurchase.purchase( btnOwner.productId );
 	}
 }
 
@@ -250,8 +232,9 @@ introShop.purchaseComplete = function(purchase) {
 	if(this.isCurrentState) {
 		introShop.displayStatus(4);
 
-		//Consume the purchase, so that we can purchase it again.
-		//In this shop all purchases are assumed to be 'consumables', and so we can buy them again.
+		// Consume the purchase, so that we can purchase it again.
+		// In this shop all purchases are assumed to be 'consumables', and so we can buy them again.
+		// Only needed for Android
 		this.game.inAppPurchase.consume( purchase );
 	}
 }

@@ -15,7 +15,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Plugins",
             "name": "Plugins",
-            "description": "The InAppPurchase plugin is designed to help make intergrating in-app purchase's using CocoonJS with Kiwi easier. \nWhat happens is that when a game that use's this plugin is created, a new manager is added to the 'game' root which is a instanted version of this class, under the property 'inAppPurchase'. You can then access that object to make a purchase or fetch purchases from the store."
+            "description": "The InAppPurchase plugin is designed to help make intergrating the CocoonJS IAP with Kiwi easier. \nWhen a game is created, a new manager will be added to the 'game' root which is a instanted version of this class, under the property 'inAppPurchase'. You can then access that object to make a purchase or fetch purchases from the store."
         }
     ]
 } };

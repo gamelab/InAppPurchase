@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 1.0.0</em>
+            <em>API Docs for: 2.0.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -94,7 +94,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_inAppPurchase-1.0.0.js.html#l1"><code>src\inAppPurchase-1.0.0.js:1</code></a>
+            Defined in: <a href="../files/src_in-app-purchase-2.0.0.js.html#l1"><code>src\in-app-purchase-2.0.0.js:1</code></a>
         </div>
     
 
@@ -111,8 +111,8 @@
 
 
 <div class="box intro">
-    <p>The InAppPurchase plugin is designed to help make intergrating in-app purchase&#39;s using CocoonJS with Kiwi easier. 
-What happens is that when a game that use&#39;s this plugin is created, a new manager is added to the &#39;game&#39; root which is a instanted version of this class, under the property &#39;inAppPurchase&#39;. You can then access that object to make a purchase or fetch purchases from the store.</p>
+    <p>The InAppPurchase plugin is designed to help make intergrating the CocoonJS IAP with Kiwi easier. 
+When a game is created, a new manager will be added to the &#39;game&#39; root which is a instanted version of this class, under the property &#39;inAppPurchase&#39;. You can then access that object to make a purchase or fetch purchases from the store.</p>
 
 </div>
 
@@ -142,50 +142,15 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
 
                     <ul class="index-list methods">
                         
-                            <li class="index-item method public">
-                                <a href="#method__createCallbacks">_createCallbacks</a>
-
-                                
-                                
-                            </li>
-                        
                             <li class="index-item method private">
-                                <a href="#method__onProductPurchaseVerificationRequestReceived">_onProductPurchaseVerificationRequestReceived</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method private">
-                                <a href="#method__retrieveProducts">_retrieveProducts</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method private">
-                                <a href="#method__retrievePurchases">_retrievePurchases</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
                                 <a href="#method__startEvents">_startEvents</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method public">
-                                <a href="#method_addProduct">addProduct</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_addPurchase">addPurchase</a>
+                            <li class="index-item method">
+                                <a href="#method_available">available</a>
 
                                 
                                 
@@ -198,15 +163,8 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                                 
                             </li>
                         
-                            <li class="index-item method public">
-                                <a href="#method_cancelPurchase">cancelPurchase</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_consumePurchase">consumePurchase</a>
+                            <li class="index-item method">
+                                <a href="#method_consume">consume</a>
 
                                 
                                 
@@ -219,43 +177,8 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                                 
                             </li>
                         
-                            <li class="index-item method public">
-                                <a href="#method_createProduct">createProduct</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_expirePurchase">expirePurchase</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_fetchProductsFromStore">fetchProductsFromStore</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_finishPurchase">finishPurchase</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_getProductById">getProductById</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_getStoreType">getStoreType</a>
+                            <li class="index-item method">
+                                <a href="#method_fetchProducts">fetchProducts</a>
 
                                 
                                 
@@ -268,8 +191,15 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                                 
                             </li>
                         
-                            <li class="index-item method public">
+                            <li class="index-item method">
                                 <a href="#method_isPurchased">isPurchased</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_log">log</a>
 
                                 
                                 
@@ -282,57 +212,15 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                                 
                             </li>
                         
-                            <li class="index-item method public">
-                                <a href="#method_purchaseProduct">purchaseProduct</a>
+                            <li class="index-item method">
+                                <a href="#method_purchase">purchase</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method public">
-                                <a href="#method_purchaseProductModal">purchaseProductModal</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_purchaseProductModalWithPreview">purchaseProductModalWithPreview</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_refundPurchase">refundPurchase</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_removeProduct">removeProduct</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_removePurchase">removePurchase</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_restorePurchases">restorePurchases</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public">
-                                <a href="#method_restorePurchasesModal">restorePurchasesModal</a>
+                            <li class="index-item method">
+                                <a href="#method_restore">restore</a>
 
                                 
                                 
@@ -348,144 +236,16 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
 
                     <ul class="index-list properties">
                         
-                            <li class="index-item property private">
-                                <a href="#property__managed">_managed</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property private">
-                                <a href="#property__products">_products</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property private">
-                                <a href="#property__purchases">_purchases</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property private">
-                                <a href="#property__sandbox">_sandbox</a>
+                            <li class="index-item property public">
+                                <a href="#property_active">active</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item property public">
-                                <a href="#property_addProducts">addProducts</a>
+                                <a href="#property_deviceReady">deviceReady</a>
 
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_addPurchases">addPurchases</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_AMAZON_STORE">AMAZON_STORE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_apiVersion">apiVersion</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_APP_STORE">APP_STORE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_AUTO_RENEWABLE_SUBSCRIPTION">AUTO_RENEWABLE_SUBSCRIPTION</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_autoConsume">autoConsume</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_available">available</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_bundleId">bundleId</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_CANCELED">CANCELED</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_CHROME_STORE">CHROME_STORE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_CONSUMABLE">CONSUMABLE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_EXPIRED">EXPIRED</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_FREE_SUBSCRIPTION">FREE_SUBSCRIPTION</a>
-
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
@@ -505,85 +265,7 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                             </li>
                         
                             <li class="index-item property public">
-                                <a href="#property_MOCK_STORE">MOCK_STORE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
                                 <a href="#property_name">name</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_NON_CONSUMABLE">NON_CONSUMABLE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_NON_RENEWABLE_SUBSCRIPTION">NON_RENEWABLE_SUBSCRIPTION</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_NOOK_STORE">NOOK_STORE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onConsumeCompleteCallback">onConsumeCompleteCallback</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onConsumeFailedCallback">onConsumeFailedCallback</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onConsumeStartedCallback">onConsumeStartedCallback</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onFetchComplete">onFetchComplete</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onFetchFailed">onFetchFailed</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onFetchStarted">onFetchStarted</a>
 
                                 
                                 
@@ -611,82 +293,6 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                             </li>
                         
                             <li class="index-item property public">
-                                <a href="#property_onPurchaseVertificationCallback">onPurchaseVertificationCallback</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onRestoreComplete">onRestoreComplete</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onRestoreFailedCallback">onRestoreFailedCallback</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_onRestoreStarted">onRestoreStarted</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_PLAY_STORE">PLAY_STORE</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_products">products</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_PURCHASED">PURCHASED</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_purchases">purchases</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_REFUNDED">REFUNDED</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
-                                <a href="#property_storeType">storeType</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property public">
                                 <a href="#property_version">version</a>
 
                                 
@@ -707,290 +313,7 @@ What happens is that when a game that use&#39;s this plugin is created, a new ma
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method__createCallbacks" class="method item public">
-    <h3 class="name"><code>_createCallbacks</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l599"><code>src\inAppPurchase-1.0.0.js:599</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Initalises the callbacks that the users have access to through this plugin.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method__onProductPurchaseVerificationRequestReceived" class="method item private">
-    <h3 class="name"><code>_onProductPurchaseVerificationRequestReceived</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>productId</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>data</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l803"><code>src\inAppPurchase-1.0.0.js:803</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>If the user is not using Cocoons Extentions to managed the purchase verification then they are going to have to customise what happens 
-with this callback.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">productId</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">data</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method__retrieveProducts" class="method item private">
-    <h3 class="name"><code>_retrieveProducts</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l264"><code>src\inAppPurchase-1.0.0.js:264</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Updates the products array with all of the product information store in the local database. Internal use only.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method__retrievePurchases" class="method item private">
-    <h3 class="name"><code>_retrievePurchases</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l244"><code>src\inAppPurchase-1.0.0.js:244</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Updates the purchases array with all of the purchase information stored in the local database. Internal use only.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method__startEvents" class="method item public">
+                    <div id="method__startEvents" class="method item private">
     <h3 class="name"><code>_startEvents</code></h3>
 
     
@@ -1002,7 +325,7 @@ with this callback.</p>
     
 
     
-        <span class="flag public">public</span>
+        <span class="flag private">private</span>
     
 
     
@@ -1024,7 +347,7 @@ with this callback.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l707"><code>src\inAppPurchase-1.0.0.js:707</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l383"><code>src\in-app-purchase-2.0.0.js:383</code></a>
         
         </p>
 
@@ -1035,7 +358,8 @@ with this callback.</p>
     </div>
 
     <div class="description">
-        <p>Adds event listeners to the cocoon store. This is applyed during the init method of the app and is a internal method only.</p>
+        <p>Adds event listeners to the store. 
+This is applyed during the init method of the app and is a internal method only.</p>
 
     </div>
 
@@ -1047,29 +371,21 @@ with this callback.</p>
 </div>
 
                 
-                    <div id="method_addProduct" class="method item public">
-    <h3 class="name"><code>addProduct</code></h3>
+                    <div id="method_available" class="method item">
+    <h3 class="name"><code>available</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>product</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
     
 
     
 
-    
-
-    
-        <span class="flag public">public</span>
     
 
     
@@ -1091,7 +407,7 @@ with this callback.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l373"><code>src\inAppPurchase-1.0.0.js:373</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l174"><code>src\in-app-purchase-2.0.0.js:174</code></a>
         
         </p>
 
@@ -1102,126 +418,24 @@ with this callback.</p>
     </div>
 
     <div class="description">
-        <p>Adds a ProductInfo object to the local database.</p>
+        <p>Returns a flag indicating if IAP methods can be executed or not.</p>
 
     </div>
 
     
-        <div class="params">
-            <h4>Parameters:</h4>
 
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">product</code>
-                        <span class="type">Object</span>
-                    
+    
+        <div class="returns">
+            <h4>Returns:</h4>
 
+            <div class="returns-description">
+                
                     
-
-                    <div class="param-description">
-                         
-                    </div>
-
+                        <span class="type">Boolean</span>:
                     
-                </li>
-            
-            </ul>
+                
+            </div>
         </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_addPurchase" class="method item public">
-    <h3 class="name"><code>addPurchase</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>purchase</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l477"><code>src\inAppPurchase-1.0.0.js:477</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Adds a purchase to the local database that stores purchase information.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">purchase</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The purchase that you want to add to the database</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
     
 
     
@@ -1262,7 +476,7 @@ with this callback.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l80"><code>src\inAppPurchase-1.0.0.js:80</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l92"><code>src\in-app-purchase-2.0.0.js:92</code></a>
         
         </p>
 
@@ -1285,8 +499,8 @@ with this callback.</p>
 </div>
 
                 
-                    <div id="method_cancelPurchase" class="method item public">
-    <h3 class="name"><code>cancelPurchase</code></h3>
+                    <div id="method_consume" class="method item">
+    <h3 class="name"><code>consume</code></h3>
 
     
         <div class="args">
@@ -1294,7 +508,25 @@ with this callback.</p>
             
                 <li class="arg">
                     
-                        <code>transactionId</code>
+                        <code>productId</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[quantity=1]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[context]</code>
                     
                 </li>
             
@@ -1306,8 +538,6 @@ with this callback.</p>
 
     
 
-    
-        <span class="flag public">public</span>
     
 
     
@@ -1329,7 +559,7 @@ with this callback.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1131"><code>src\inAppPurchase-1.0.0.js:1131</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l328"><code>src\in-app-purchase-2.0.0.js:328</code></a>
         
         </p>
 
@@ -1340,7 +570,7 @@ with this callback.</p>
     </div>
 
     <div class="description">
-        <p>Simulates the cancelation of a purchase for the transactionId you pass.</p>
+        <p>Consumes a product so that it can be purchased again. Android only.</p>
 
     </div>
 
@@ -1352,8 +582,8 @@ with this callback.</p>
             
                 <li class="param">
                     
-                        <code class="param-name">transactionId</code>
-                        <span class="type">Object</span>
+                        <code class="param-name">productId</code>
+                        <span class="type">String</span>
                     
 
                     
@@ -1365,95 +595,49 @@ with this callback.</p>
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_consumePurchase" class="method item public">
-    <h3 class="name"><code>consumePurchase</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>purchase</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l510"><code>src\inAppPurchase-1.0.0.js:510</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>&quot;Consumes&quot; a purchase, allowing it to be purchased again. Currently only used for the Play Store. 
-Use to prevent &#39;You already own this product&#39; errors.
-Make sure when you use this method you also add event listeners to the onConsumeStarted, onConsumeCompleted and onConsumeFailed methods.
-Note: When a purchase is consumed that product can no longer be restored.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">purchase</code>
-                        <span class="type">Object</span>
+                        <code class="param-name optional">[quantity=1]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The purchase that you want to consume.</p>
+                         
+                    </div>
 
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[context]</code>
+                        <span class="type">Any</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
                     </div>
 
                     
@@ -1513,7 +697,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l44"><code>src\inAppPurchase-1.0.0.js:44</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l63"><code>src\in-app-purchase-2.0.0.js:63</code></a>
         
         </p>
 
@@ -1560,321 +744,8 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
 </div>
 
                 
-                    <div id="method_createProduct" class="method item public">
-    <h3 class="name"><code>createProduct</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>productAlias</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>productId</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>productType</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>title</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>description</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>localizedPrice</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>downloadURL</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l351"><code>src\inAppPurchase-1.0.0.js:351</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Creates a new ProductInformation object and then adds it to the local database based on the parameters that are passed.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">productAlias</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The alias of the product.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">productId</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The unique productId the product will have</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">productType</code>
-                        <span class="type">Number</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The type of product this is. See the CocoonJS_Store @CocoonJS.Store.ProductType for the numbers.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">title</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The title of this product</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">description</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The description of the product</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">localizedPrice</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The localized price of this product</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">downloadURL</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The URL of the asset to be downloaded for this purchase.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_expirePurchase" class="method item public">
-    <h3 class="name"><code>expirePurchase</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>transactionId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1117"><code>src\inAppPurchase-1.0.0.js:1117</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Simulates the expiration of a purchase for the transactionId you pass.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">transactionId</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_fetchProductsFromStore" class="method item public">
-    <h3 class="name"><code>fetchProductsFromStore</code></h3>
+                    <div id="method_fetchProducts" class="method item">
+    <h3 class="name"><code>fetchProducts</code></h3>
 
     
         <div class="args">
@@ -1886,6 +757,18 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
                     
                 </li>
             
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[context]</code>
+                    
+                </li>
+            
             </ul><span class="paren">)</span>
         </div>
     
@@ -1894,8 +777,6 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
 
     
 
-    
-        <span class="flag public">public</span>
     
 
     
@@ -1917,7 +798,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l335"><code>src\inAppPurchase-1.0.0.js:335</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l240"><code>src\in-app-purchase-2.0.0.js:240</code></a>
         
         </p>
 
@@ -1928,7 +809,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
     </div>
 
     <div class="description">
-        <p>Retreives product information off of the Store based on an array of productIds (in a string format) that are passed.</p>
+        <p>Validates the productIds passed.</p>
 
     </div>
 
@@ -1941,211 +822,39 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
                 <li class="param">
                     
                         <code class="param-name">productIds</code>
-                        <span class="type">String</span>
+                        <span class="type">Array</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>An array of strings, each of which being a productId.</p>
-
+                         
                     </div>
 
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_finishPurchase" class="method item public">
-    <h3 class="name"><code>finishPurchase</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>transactionId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">Boolean</span>
-        </span>
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l558"><code>src\inAppPurchase-1.0.0.js:558</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Used to finish the a purchase transaction. Tells the store that you can successfully downloaded all of the required assets/e.t.c needed.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">transactionId</code>
-                        <span class="type">String</span>
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The id of the transaction that has been finished.</p>
-
+                         
                     </div>
 
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">Boolean</span>:
-                    
-                    <p>If the finished method for that transaction was successful or not.</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_getProductById" class="method item public">
-    <h3 class="name"><code>getProductById</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>productId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">Object</span>
-        </span>
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l282"><code>src\inAppPurchase-1.0.0.js:282</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Retrieves a product by a productId that is passed. Doesn&#39;t update the local database of products first.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">productId</code>
-                        <span class="type">String</span>
+                        <code class="param-name optional">[context]</code>
+                        <span class="type">Any</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
@@ -2161,95 +870,6 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
         </div>
     
 
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">Object</span>:
-                    
-                    <p>Returns an object containing the information for that product if it was found. If not found then returns null.</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_getStoreType" class="method item public">
-    <h3 class="name"><code>getStoreType</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">Number</span>
-        </span>
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l186"><code>src\inAppPurchase-1.0.0.js:186</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Returns the type of store that is being/will be used.</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">Number</span>:
-                    
-                    <p>The number related to the store that is being used.</p>
-
-                
-            </div>
-        </div>
     
 
     
@@ -2265,13 +885,19 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
                 <li class="arg">
                     
-                        <code class="optional">[managed=false]</code>
+                        <code class="optional">[productIds]</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code class="optional">[sandbox=true]</code>
+                        <code class="optional">[callback]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[context]</code>
                     
                 </li>
             
@@ -2308,7 +934,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l198"><code>src\inAppPurchase-1.0.0.js:198</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l190"><code>src\in-app-purchase-2.0.0.js:190</code></a>
         
         </p>
 
@@ -2319,7 +945,8 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
     </div>
 
     <div class="description">
-        <p>Initalises the store (if it is avaiable) and starts the retrieval of products and purchases.</p>
+        <p>Initalises the store if it is avaiable. 
+Starts fetching products from the store if an array of productIds were passed.</p>
 
     </div>
 
@@ -2331,16 +958,15 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
                 <li class="param">
                     
-                        <code class="param-name optional">[managed=false]</code>
-                        <span class="type">Boolean</span>
+                        <code class="param-name optional">[productIds]</code>
+                        <span class="type">Array</span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>If the product purchase verification should be done through Cocoons Cloud Service or not. If you set this as false then you need to add a callback to the onPurchaseVertification as when it dispatchs a event you will need to veri that the data is correct.</p>
-
+                         
                     </div>
 
                     
@@ -2348,16 +974,31 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
                 <li class="param">
                     
-                        <code class="param-name optional">[sandbox=true]</code>
-                        <span class="type">Boolean</span>
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type">Function</span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>If the app should be launched in sandbox mode or not. For testing.</p>
+                         
+                    </div>
 
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[context]</code>
+                        <span class="type">Any</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
                     </div>
 
                     
@@ -2385,7 +1026,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
 </div>
 
                 
-                    <div id="method_isPurchased" class="method item public">
+                    <div id="method_isPurchased" class="method item">
     <h3 class="name"><code>isPurchased</code></h3>
 
     
@@ -2411,8 +1052,6 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
     
 
     
-        <span class="flag public">public</span>
-    
 
     
 
@@ -2433,7 +1072,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l462"><code>src\inAppPurchase-1.0.0.js:462</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l310"><code>src\in-app-purchase-2.0.0.js:310</code></a>
         
         </p>
 
@@ -2483,11 +1122,99 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
                     
                         <span class="type">Boolean</span>:
                     
-                    <p>Returns a boolean indicating whether the product has been brought or not.</p>
+                    <p>Returns a boolean indicating whether the product has been brought or not</p>
 
                 
             </div>
         </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_log" class="method item">
+    <h3 class="name"><code>log</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>message</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l159"><code>src\in-app-purchase-2.0.0.js:159</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Shortcut to log a message with fixed information related to this plugin added.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">message</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
     
 
     
@@ -2532,7 +1259,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l586"><code>src\inAppPurchase-1.0.0.js:586</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l147"><code>src\in-app-purchase-2.0.0.js:147</code></a>
         
         </p>
 
@@ -2567,8 +1294,8 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
 </div>
 
                 
-                    <div id="method_purchaseProduct" class="method item public">
-    <h3 class="name"><code>purchaseProduct</code></h3>
+                    <div id="method_purchase" class="method item">
+    <h3 class="name"><code>purchase</code></h3>
 
     
         <div class="args">
@@ -2580,6 +1307,24 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
                     
                 </li>
             
+                <li class="arg">
+                    
+                        <code class="optional">[quantity=1]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[context]</code>
+                    
+                </li>
+            
             </ul><span class="paren">)</span>
         </div>
     
@@ -2588,8 +1333,6 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
 
     
 
-    
-        <span class="flag public">public</span>
     
 
     
@@ -2611,7 +1354,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l412"><code>src\inAppPurchase-1.0.0.js:412</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l275"><code>src\in-app-purchase-2.0.0.js:275</code></a>
         
         </p>
 
@@ -2641,183 +1384,49 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
                     
 
                     <div class="param-description">
-                        <p>The Id of the product that is being requested to be brought.</p>
-
+                         
                     </div>
 
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_purchaseProductModal" class="method item public">
-    <h3 class="name"><code>purchaseProductModal</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>productId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l430"><code>src\inAppPurchase-1.0.0.js:430</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Request a product purchase given it&#39;s product id showing a modal progress dialog.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">productId</code>
-                        <span class="type">String</span>
+                        <code class="param-name optional">[quantity=1]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The id of the product</p>
-
+                         
                     </div>
 
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_purchaseProductModalWithPreview" class="method item public">
-    <h3 class="name"><code>purchaseProductModalWithPreview</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
+                <li class="param">
                     
-                        <code>productId</code>
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
                     
                 </li>
             
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l446"><code>src\inAppPurchase-1.0.0.js:446</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Request the purchase of a product given it&#39;s product id showing a dialog with a preview of the product (title and description).</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">productId</code>
-                        <span class="type">String</span>
+                        <code class="param-name optional">[context]</code>
+                        <span class="type">Any</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
@@ -2839,298 +1448,8 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
 </div>
 
                 
-                    <div id="method_refundPurchase" class="method item public">
-    <h3 class="name"><code>refundPurchase</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>transactionId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1145"><code>src\inAppPurchase-1.0.0.js:1145</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Simulates the refunding of a purchase, based on the transactionId you pass.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">transactionId</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeProduct" class="method item public">
-    <h3 class="name"><code>removeProduct</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>productId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l395"><code>src\inAppPurchase-1.0.0.js:395</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Removes a product from the local database based on the parameters that are passed.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">productId</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The productId of the item that you would like to remove.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removePurchase" class="method item public">
-    <h3 class="name"><code>removePurchase</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>transactionId</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">Boolean</span>
-        </span>
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l493"><code>src\inAppPurchase-1.0.0.js:493</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Removes a purchase from the local database which stores the purchase information.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">transactionId</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The transactionId of the purchase you want to remove. This can be found on a purchase item.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">Boolean</span>:
-                    
-                    <p>If the transaction was successfully removed or not.   b</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_restorePurchases" class="method item public">
-    <h3 class="name"><code>restorePurchases</code></h3>
+                    <div id="method_restore" class="method item">
+    <h3 class="name"><code>restore</code></h3>
 
     
         <span class="paren">()</span>
@@ -3141,8 +1460,6 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
     
 
     
-        <span class="flag public">public</span>
-    
 
     
 
@@ -3163,7 +1480,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l530"><code>src\inAppPurchase-1.0.0.js:530</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l364"><code>src\in-app-purchase-2.0.0.js:364</code></a>
         
         </p>
 
@@ -3174,65 +1491,7 @@ Note: When a purchase is consumed that product can no longer be restored.</p>
     </div>
 
     <div class="description">
-        <p>Restoring the purchases is the way of returning purchased items information from the platform Store.
-Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoonjs:extensions:store">http://wiki.ludei.com/cocoonjs:extensions:store</a> or you platform store for more detail.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_restorePurchasesModal" class="method item public">
-    <h3 class="name"><code>restorePurchasesModal</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l545"><code>src\inAppPurchase-1.0.0.js:545</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Restores all of the purchases through the platforms market with a modal dialog.</p>
+        <p>Starts the purchase restoration process</p>
 
     </div>
 
@@ -3252,196 +1511,8 @@ Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoo
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property__managed" class="property item private">
-    <h3 class="name"><code>_managed</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l156"><code>src\inAppPurchase-1.0.0.js:156</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>If the in app purchasing should be managed via the Cocoon Cloud compling service or not.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property__products" class="property item private">
-    <h3 class="name"><code>_products</code></h3>
-    <span class="type">Array</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l112"><code>src\inAppPurchase-1.0.0.js:112</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>An array holding all of the products that are avaiable on the store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property__purchases" class="property item private">
-    <h3 class="name"><code>_purchases</code></h3>
-    <span class="type">Array</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l120"><code>src\inAppPurchase-1.0.0.js:120</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>An array consisting of all of the purchases that have been saved.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property__sandbox" class="property item private">
-    <h3 class="name"><code>_sandbox</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-        <span class="flag private">private</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l164"><code>src\inAppPurchase-1.0.0.js:164</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>If the app is launching in a &#39;sandbox&#39; mode.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_addProducts" class="property item public">
-    <h3 class="name"><code>addProducts</code></h3>
+                    <div id="property_active" class="property item public">
+    <h3 class="name"><code>active</code></h3>
     <span class="type">Boolean</span>
 
     
@@ -3465,7 +1536,7 @@ Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoo
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l138"><code>src\inAppPurchase-1.0.0.js:138</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l99"><code>src\in-app-purchase-2.0.0.js:99</code></a>
         
         </p>
 
@@ -3475,7 +1546,8 @@ Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoo
     </div>
 
     <div class="description">
-        <p>If the products once fetched from the store, should be automatically added to the localdatabase.</p>
+        <p>If the IAPs are ready to be purchased or not. 
+Will be false if the <code>init</code> method is yet to be executed.</p>
 
     </div>
 
@@ -3489,8 +1561,8 @@ Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoo
 </div>
 
                 
-                    <div id="property_addPurchases" class="property item public">
-    <h3 class="name"><code>addPurchases</code></h3>
+                    <div id="property_deviceReady" class="property item public">
+    <h3 class="name"><code>deviceReady</code></h3>
     <span class="type">Boolean</span>
 
     
@@ -3514,7 +1586,7 @@ Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoo
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l128"><code>src\inAppPurchase-1.0.0.js:128</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l36"><code>src\in-app-purchase-2.0.0.js:36</code></a>
         
         </p>
 
@@ -3524,596 +1596,12 @@ Only certain purchases can be restored. See <a href="http://wiki.ludei.com/cocoo
     </div>
 
     <div class="description">
-        <p>If the purchase information for products should be automatically saved into the local database or not. 
-Defaults to true</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> true</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_AMAZON_STORE" class="property item public">
-    <h3 class="name"><code>AMAZON_STORE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1007"><code>src\inAppPurchase-1.0.0.js:1007</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to the app store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_apiVersion" class="property item public">
-    <h3 class="name"><code>apiVersion</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l96"><code>src\inAppPurchase-1.0.0.js:96</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The API version of the app that is being developed. Not required.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_APP_STORE" class="property item public">
-    <h3 class="name"><code>APP_STORE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l939"><code>src\inAppPurchase-1.0.0.js:939</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to the app store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_AUTO_RENEWABLE_SUBSCRIPTION" class="property item public">
-    <h3 class="name"><code>AUTO_RENEWABLE_SUBSCRIPTION</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l891"><code>src\inAppPurchase-1.0.0.js:891</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>An auto-renewable subscription. See platform documentation for further information.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_autoConsume" class="property item public">
-    <h3 class="name"><code>autoConsume</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l147"><code>src\inAppPurchase-1.0.0.js:147</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>If when a purchase is made, and the product purchased is a CONSUMABLE, whether it should be automatically consumed to be ready for future purchase.</p>
+        <p>If the device is ready to be used or not.</p>
 
     </div>
 
     
         <p><strong>Default:</strong> false</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_available" class="property item public">
-    <h3 class="name"><code>available</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l69"><code>src\inAppPurchase-1.0.0.js:69</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Indicates if the store is accessible and can be used or not.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_bundleId" class="property item public">
-    <h3 class="name"><code>bundleId</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l87"><code>src\inAppPurchase-1.0.0.js:87</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Your unique Identifier for your app. Not required. 
-Generally follows the convetion of com.yourcompany.appname</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_CANCELED" class="property item public">
-    <h3 class="name"><code>CANCELED</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1059"><code>src\inAppPurchase-1.0.0.js:1059</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to a purchaseState that is canceled.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_CHROME_STORE" class="property item public">
-    <h3 class="name"><code>CHROME_STORE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l990"><code>src\inAppPurchase-1.0.0.js:990</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to the app store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_CONSUMABLE" class="property item public">
-    <h3 class="name"><code>CONSUMABLE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l861"><code>src\inAppPurchase-1.0.0.js:861</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>A consumable product.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_EXPIRED" class="property item public">
-    <h3 class="name"><code>EXPIRED</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1093"><code>src\inAppPurchase-1.0.0.js:1093</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to a purchaseState that has expired. Used mainly on subscription based purchases.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_FREE_SUBSCRIPTION" class="property item public">
-    <h3 class="name"><code>FREE_SUBSCRIPTION</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l906"><code>src\inAppPurchase-1.0.0.js:906</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>A free subscription. See platform documentation for further information.</p>
-
-    </div>
-
     
 
     
@@ -4147,7 +1635,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l61"><code>src\inAppPurchase-1.0.0.js:61</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l80"><code>src\in-app-purchase-2.0.0.js:80</code></a>
         
         </p>
 
@@ -4194,7 +1682,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l28"><code>src\inAppPurchase-1.0.0.js:28</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l28"><code>src\in-app-purchase-2.0.0.js:28</code></a>
         
         </p>
 
@@ -4205,55 +1693,6 @@ Generally follows the convetion of com.yourcompany.appname</p>
 
     <div class="description">
         <p>The minimum version of Kiwi.js required to run this plugin in semver (semantic versioning) format</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_MOCK_STORE" class="property item public">
-    <h3 class="name"><code>MOCK_STORE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l973"><code>src\inAppPurchase-1.0.0.js:973</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to the app store.</p>
 
     </div>
 
@@ -4290,7 +1729,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l12"><code>src\inAppPurchase-1.0.0.js:12</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l12"><code>src\in-app-purchase-2.0.0.js:12</code></a>
         
         </p>
 
@@ -4302,435 +1741,6 @@ Generally follows the convetion of com.yourcompany.appname</p>
     <div class="description">
         <p>The name of this plugin.</p>
 
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_NON_CONSUMABLE" class="property item public">
-    <h3 class="name"><code>NON_CONSUMABLE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l876"><code>src\inAppPurchase-1.0.0.js:876</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>A non-cunsumable product.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_NON_RENEWABLE_SUBSCRIPTION" class="property item public">
-    <h3 class="name"><code>NON_RENEWABLE_SUBSCRIPTION</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l921"><code>src\inAppPurchase-1.0.0.js:921</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>A non-renewable subscription. See platform documentation for further information.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_NOOK_STORE" class="property item public">
-    <h3 class="name"><code>NOOK_STORE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1024"><code>src\inAppPurchase-1.0.0.js:1024</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to the app store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onConsumeCompleteCallback" class="property item public">
-    <h3 class="name"><code>onConsumeCompleteCallback</code></h3>
-    <span class="type">Function</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l688"><code>src\inAppPurchase-1.0.0.js:688</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <p><strong>Default:</strong> null</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onConsumeFailedCallback" class="property item public">
-    <h3 class="name"><code>onConsumeFailedCallback</code></h3>
-    <span class="type">Function</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l696"><code>src\inAppPurchase-1.0.0.js:696</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <p><strong>Default:</strong> null</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onConsumeStartedCallback" class="property item public">
-    <h3 class="name"><code>onConsumeStartedCallback</code></h3>
-    <span class="type">Function</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l680"><code>src\inAppPurchase-1.0.0.js:680</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <p><strong>Default:</strong> null</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onFetchComplete" class="property item public">
-    <h3 class="name"><code>onFetchComplete</code></h3>
-    <span class="type">Signal</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l620"><code>src\inAppPurchase-1.0.0.js:620</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onFetchFailed" class="property item public">
-    <h3 class="name"><code>onFetchFailed</code></h3>
-    <span class="type">Signal</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l613"><code>src\inAppPurchase-1.0.0.js:613</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onFetchStarted" class="property item public">
-    <h3 class="name"><code>onFetchStarted</code></h3>
-    <span class="type">Signal</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l606"><code>src\inAppPurchase-1.0.0.js:606</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
     </div>
 
     
@@ -4766,7 +1776,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l672"><code>src\inAppPurchase-1.0.0.js:672</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l131"><code>src\in-app-purchase-2.0.0.js:131</code></a>
         
         </p>
 
@@ -4776,7 +1786,8 @@ Generally follows the convetion of com.yourcompany.appname</p>
     </div>
 
     <div class="description">
-        
+        <p>Executed when a purchase was successful.</p>
+
     </div>
 
     
@@ -4814,7 +1825,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l656"><code>src\inAppPurchase-1.0.0.js:656</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l121"><code>src\in-app-purchase-2.0.0.js:121</code></a>
         
         </p>
 
@@ -4824,7 +1835,8 @@ Generally follows the convetion of com.yourcompany.appname</p>
     </div>
 
     <div class="description">
-        
+        <p>Executed when a purchase failed to complete.</p>
+
     </div>
 
     
@@ -4862,7 +1874,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l648"><code>src\inAppPurchase-1.0.0.js:648</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l111"><code>src\in-app-purchase-2.0.0.js:111</code></a>
         
         </p>
 
@@ -4872,485 +1884,12 @@ Generally follows the convetion of com.yourcompany.appname</p>
     </div>
 
     <div class="description">
-        
+        <p>Executed when a purchase is being made.</p>
+
     </div>
 
     
         <p><strong>Default:</strong> null</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onPurchaseVertificationCallback" class="property item public">
-    <h3 class="name"><code>onPurchaseVertificationCallback</code></h3>
-    <span class="type">Function</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l664"><code>src\inAppPurchase-1.0.0.js:664</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <p><strong>Default:</strong> null</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onRestoreComplete" class="property item public">
-    <h3 class="name"><code>onRestoreComplete</code></h3>
-    <span class="type">Signal</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l634"><code>src\inAppPurchase-1.0.0.js:634</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onRestoreFailedCallback" class="property item public">
-    <h3 class="name"><code>onRestoreFailedCallback</code></h3>
-    <span class="type">Signal</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l641"><code>src\inAppPurchase-1.0.0.js:641</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_onRestoreStarted" class="property item public">
-    <h3 class="name"><code>onRestoreStarted</code></h3>
-    <span class="type">Signal</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l627"><code>src\inAppPurchase-1.0.0.js:627</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_PLAY_STORE" class="property item public">
-    <h3 class="name"><code>PLAY_STORE</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l956"><code>src\inAppPurchase-1.0.0.js:956</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to the app store.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_products" class="property item public">
-    <h3 class="name"><code>products</code></h3>
-    <span class="type">Array</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l303"><code>src\inAppPurchase-1.0.0.js:303</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The products that are currently avaiable.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_PURCHASED" class="property item public">
-    <h3 class="name"><code>PURCHASED</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1042"><code>src\inAppPurchase-1.0.0.js:1042</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to a purchaseState that is successful.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_purchases" class="property item public">
-    <h3 class="name"><code>purchases</code></h3>
-    <span class="type">Array</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l319"><code>src\inAppPurchase-1.0.0.js:319</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The purchase&#39;s that the user has made.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_REFUNDED" class="property item public">
-    <h3 class="name"><code>REFUNDED</code></h3>
-    <span class="type">Unknown</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l1076"><code>src\inAppPurchase-1.0.0.js:1076</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The number related to a purchaseState that has been refunded.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_storeType" class="property item public">
-    <h3 class="name"><code>storeType</code></h3>
-    <span class="type">Number</span>
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l104"><code>src\inAppPurchase-1.0.0.js:104</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The type of store that is being used.</p>
-
-    </div>
-
     
 
     
@@ -5384,7 +1923,7 @@ Generally follows the convetion of com.yourcompany.appname</p>
             
         
         
-        <a href="../files/src_inAppPurchase-1.0.0.js.html#l20"><code>src\inAppPurchase-1.0.0.js:20</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l20"><code>src\in-app-purchase-2.0.0.js:20</code></a>
         
         </p>
 

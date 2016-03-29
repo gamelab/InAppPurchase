@@ -88,59 +88,59 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase = function(game) {
 };
 
 
-
-/**
-* Executed when the game's DOM has been loaded and all assets have been set-up. Internal Use only.
-* @method boot
-* @protected
-*/
-Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype.boot = function() {
-
-	/**
-	* If the IAPs are ready to be purchased or not. 
-	* Will be false if the `init` method is yet to be executed.
-	* 
-	* @property active
-	* @type boolean
-	* @default false
-	* @readOnly
-	* @public
-	*/
-	this.active = false;
-
-	/**
-	* Executed when a purchase is being made.
-	*
-	* @property onPurchaseStartedCallback
-	* @type Function
-	* @default null
-	* @public
-	*/
-	this.onPurchaseStarted = new Kiwi.Signal();
-
-	/**
-	* Executed when a purchase failed to complete.
-	* 
-	* @property onPurchaseFailedCallback
-	* @type Function
-	* @default null
-	* @public
-	*/
-	this.onPurchaseFailed = new Kiwi.Signal();
-
-	/**
-	* Executed when a purchase was successful.
-	* 
-	* @property onPurchaseCompleteCallback
-	* @type Function
-	* @default null
-	* @public
-	*/
-	this.onPurchaseComplete = new Kiwi.Signal();
-
-}
-
 Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
+
+	boot: function() {
+
+		/**
+		* Executed when the game's DOM has been loaded and all assets have been set-up. Internal Use only.
+		* @method boot
+		* @protected
+		*/
+
+		/**
+		* If the IAPs are ready to be purchased or not. 
+		* Will be false if the `init` method is yet to be executed.
+		* 
+		* @property active
+		* @type boolean
+		* @default false
+		* @readOnly
+		* @public
+		*/
+		this.active = false;
+
+		/**
+		* Executed when a purchase is being made.
+		*
+		* @property onPurchaseStartedCallback
+		* @type Function
+		* @default null
+		* @public
+		*/
+		this.onPurchaseStarted = new Kiwi.Signal();
+
+		/**
+		* Executed when a purchase failed to complete.
+		* 
+		* @property onPurchaseFailedCallback
+		* @type Function
+		* @default null
+		* @public
+		*/
+		this.onPurchaseFailed = new Kiwi.Signal();
+
+		/**
+		* Executed when a purchase was successful.
+		* 
+		* @property onPurchaseCompleteCallback
+		* @type Function
+		* @default null
+		* @public
+		*/
+		this.onPurchaseComplete = new Kiwi.Signal();
+
+	},
 
 	objType: function() {
 
@@ -377,6 +377,8 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		Cocoon.InApp.restorePurchases();
 
 	},
+
+	
 
 	_startEvents: function() {
 
