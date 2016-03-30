@@ -45,7 +45,21 @@ introShop.init = function() {
 	this.game.inAppPurchase.onPurchaseFailed.add(this.purchaseFailed, this);
 	this.game.inAppPurchase.onPurchaseComplete.add(this.purchaseComplete, this);
 
+    this.game.inAppPurchase.setValidationHandler( this.validateReceipt, this );
 }
+
+/**
+* Validates a purchase the user makes
+**/
+introShop.validateReceipt = function(receipt, productId, completion) {
+
+    //Validate the receipt code here...
+    //https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Introduction.html
+
+    //Execute the `completion` callback once completed and pass a boolean indicating a success or failure. 
+    completion( true );
+
+};
 
 
 /*

@@ -398,6 +398,24 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 	},
 
+	products: function() {
+
+		/**
+		* Returns all local product information. 
+		* Make sure you have called `fetchProducts` first. 
+		* 
+		* @method products
+		* @return {Array} 
+		*/
+
+		if( !this.available() ) {
+			this.log( "products can't be performed" );
+			return false;
+		}
+
+		return Cocoon.InApp.getProducts();
+	},
+
 	setValidationHandler: function(callback, context) {
 
 		/**
@@ -418,7 +436,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 			this.log("Validation needed for " + receipt);
 			callback.call( context, receipt, productId, completion );
-			
+
 		});
 
 	},
