@@ -174,7 +174,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 92,
+            "line": 95,
             "description": "Executed when the game's DOM has been loaded and all assets have been set-up. Internal Use only.",
             "itemtype": "method",
             "name": "boot",
@@ -187,7 +187,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 99,
+            "line": 101,
             "description": "If the IAPs are ready to be purchased or not. \nWill be false if the `init` method is yet to be executed.",
             "itemtype": "property",
             "name": "active",
@@ -203,7 +203,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 111,
+            "line": 113,
             "description": "Executed when a purchase is being made.",
             "itemtype": "property",
             "name": "onPurchaseStartedCallback",
@@ -218,7 +218,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 121,
+            "line": 123,
             "description": "Executed when a purchase failed to complete.",
             "itemtype": "property",
             "name": "onPurchaseFailedCallback",
@@ -233,7 +233,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 131,
+            "line": 133,
             "description": "Executed when a purchase was successful.",
             "itemtype": "property",
             "name": "onPurchaseCompleteCallback",
@@ -422,7 +422,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 328,
+            "line": 329,
             "description": "Consumes a product so that it can be purchased again. Android only.",
             "itemtype": "method",
             "name": "consume",
@@ -459,7 +459,7 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 364,
+            "line": 365,
             "description": "Starts the purchase restoration process",
             "itemtype": "method",
             "name": "restore",
@@ -470,7 +470,68 @@
         },
         {
             "file": "src\\in-app-purchase-2.0.0.js",
-            "line": 383,
+            "line": 384,
+            "description": "Returns the product information relating to the productId passed.",
+            "itemtype": "method",
+            "name": "productForId",
+            "params": [
+                {
+                    "name": "productId",
+                    "description": "The id of the product you wanting to get.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Kiwi.Plugins.InAppPurchase",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src\\in-app-purchase-2.0.0.js",
+            "line": 403,
+            "description": "Returns all local product information. \nMake sure you have called `fetchProducts` first.",
+            "itemtype": "method",
+            "name": "products",
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
+            "class": "Kiwi.Plugins.InAppPurchase",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src\\in-app-purchase-2.0.0.js",
+            "line": 421,
+            "description": "Sets a the validation handler callback to be executed \nwhen products need validation",
+            "itemtype": "method",
+            "name": "setValidationHandler",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "Will be passed",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Any",
+                    "optional": true
+                }
+            ],
+            "class": "Kiwi.Plugins.InAppPurchase",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src\\in-app-purchase-2.0.0.js",
+            "line": 446,
             "description": "Adds event listeners to the store. \nThis is applyed during the init method of the app and is a internal method only.",
             "itemtype": "method",
             "name": "_startEvents",

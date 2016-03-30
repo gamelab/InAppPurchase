@@ -213,6 +213,20 @@ When a game is created, a new manager will be added to the &#39;game&#39; root w
                             </li>
                         
                             <li class="index-item method">
+                                <a href="#method_productForId">productForId</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_products">products</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
                                 <a href="#method_purchase">purchase</a>
 
                                 
@@ -221,6 +235,13 @@ When a game is created, a new manager will be added to the &#39;game&#39; root w
                         
                             <li class="index-item method">
                                 <a href="#method_restore">restore</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_setValidationHandler">setValidationHandler</a>
 
                                 
                                 
@@ -347,7 +368,7 @@ When a game is created, a new manager will be added to the &#39;game&#39; root w
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l383"><code>src\in-app-purchase-2.0.0.js:383</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l446"><code>src\in-app-purchase-2.0.0.js:446</code></a>
         
         </p>
 
@@ -476,7 +497,7 @@ This is applyed during the init method of the app and is a internal method only.
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l92"><code>src\in-app-purchase-2.0.0.js:92</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l95"><code>src\in-app-purchase-2.0.0.js:95</code></a>
         
         </p>
 
@@ -559,7 +580,7 @@ This is applyed during the init method of the app and is a internal method only.
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l328"><code>src\in-app-purchase-2.0.0.js:328</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l329"><code>src\in-app-purchase-2.0.0.js:329</code></a>
         
         </p>
 
@@ -1294,6 +1315,183 @@ Starts fetching products from the store if an array of productIds were passed.</
 </div>
 
                 
+                    <div id="method_productForId" class="method item">
+    <h3 class="name"><code>productForId</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>productId</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l384"><code>src\in-app-purchase-2.0.0.js:384</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Returns the product information relating to the productId passed.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">productId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The id of the product you wanting to get.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_products" class="method item">
+    <h3 class="name"><code>products</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l403"><code>src\in-app-purchase-2.0.0.js:403</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Returns all local product information. 
+Make sure you have called <code>fetchProducts</code> first.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Array</span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
                     <div id="method_purchase" class="method item">
     <h3 class="name"><code>purchase</code></h3>
 
@@ -1480,7 +1678,7 @@ Starts fetching products from the store if an array of productIds were passed.</
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l364"><code>src\in-app-purchase-2.0.0.js:364</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l365"><code>src\in-app-purchase-2.0.0.js:365</code></a>
         
         </p>
 
@@ -1495,6 +1693,118 @@ Starts fetching products from the store if an array of productIds were passed.</
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_setValidationHandler" class="method item">
+    <h3 class="name"><code>setValidationHandler</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[context]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l421"><code>src\in-app-purchase-2.0.0.js:421</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Sets a the validation handler callback to be executed 
+when products need validation</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Will be passed</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[context]</code>
+                        <span class="type">Any</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -1536,7 +1846,7 @@ Starts fetching products from the store if an array of productIds were passed.</
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l99"><code>src\in-app-purchase-2.0.0.js:99</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l101"><code>src\in-app-purchase-2.0.0.js:101</code></a>
         
         </p>
 
@@ -1776,7 +2086,7 @@ Will be false if the <code>init</code> method is yet to be executed.</p>
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l131"><code>src\in-app-purchase-2.0.0.js:131</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l133"><code>src\in-app-purchase-2.0.0.js:133</code></a>
         
         </p>
 
@@ -1825,7 +2135,7 @@ Will be false if the <code>init</code> method is yet to be executed.</p>
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l121"><code>src\in-app-purchase-2.0.0.js:121</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l123"><code>src\in-app-purchase-2.0.0.js:123</code></a>
         
         </p>
 
@@ -1874,7 +2184,7 @@ Will be false if the <code>init</code> method is yet to be executed.</p>
             
         
         
-        <a href="../files/src_in-app-purchase-2.0.0.js.html#l111"><code>src\in-app-purchase-2.0.0.js:111</code></a>
+        <a href="../files/src_in-app-purchase-2.0.0.js.html#l113"><code>src\in-app-purchase-2.0.0.js:113</code></a>
         
         </p>
 
