@@ -163,9 +163,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		* @param message {String}
 		*/
 
-		if( this.game.debugOption === Kiwi.DEBUG_ON ) {
-			Kiwi.Log.log( 'IAP:', message, '#inAppPurchase' );
-		}
+		Kiwi.Log.log( 'IAP:', message, '#inAppPurchase' );
 
 	},
 
@@ -216,7 +214,7 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 	    	autofinish: true
 		}, function( error ) {
 
-			self.active = !!(error);
+			self.active = !( error );
 
 			if( !productIds || error ) {
 
@@ -256,10 +254,16 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 		this.log("Fetching products from store");
 
+		var self = this;
+
 		Cocoon.InApp.fetchProducts( productIds, function( products, error ) {
 
 			if( error ) {
-				this.log("Fetch products failed:" + error);
+				self.log("Fetch Error " + JSON.stringify( error ) );
+			}
+
+			if( products ) {
+				self.log("Fetch Complete" );// + JSON.stringify( products ) );
 			}
 
 			if( callback ) {
@@ -287,22 +291,29 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 			if( callback ) {
 				callback.call( context, "Device doesn't support IAP" );
 			}
-			return;
+			return false;
 		}
 
-		this.log( 'Purchase of a product started' );
+		this.log( 'Purchase started' );
 
 		if( typeof quantity === "undefined" ) {
 			quantity = 1;
 		}
 
+		var self = this;
+
 		Cocoon.InApp.purchase( productId, quantity, function( error ) {
+
+			self.log("Purchase complete" + 
+			( (typeof error !== "undefined") ? "Error " + JSON.stringify( error ) : " Complete" ) );
 
 			if( callback ) {
 				callback.call( context, error );
 			}
 
 		});
+
+		return true;
 	}, 
 
 	isPurchased: function( productId ) {
@@ -350,7 +361,12 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 		this.log("Consuming " + quantity + " " + productId );
 
+		var self = this;
+
 		Cocoon.InApp.consume( productId, quantity, function(consumed, error) {
+
+			self.log("Comsume " + 
+			( (typeof error !== "undefined") ? "Error " + JSON.stringify( error ) : " Complete" ) );
 
 			if( callback ) {
 				callback.call( context, error, consumed );
@@ -398,24 +414,6 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 
 	},
 
-	products: function() {
-
-		/**
-		* Returns all local product information. 
-		* Make sure you have called `fetchProducts` first. 
-		* 
-		* @method products
-		* @return {Array} 
-		*/
-
-		if( !this.available() ) {
-			this.log( "products can't be performed" );
-			return false;
-		}
-
-		return Cocoon.InApp.getProducts();
-	},
-
 	setValidationHandler: function(callback, context) {
 
 		/**
@@ -427,16 +425,18 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 		* @param [context] {Any}
 		*/
 
-		if( !this.available() ) {
+		if( !Kiwi.Plugins.InAppPurchase.deviceReady ) {
 			this.log( "setValidationHandler can't be performed" );
 			return false;
 		}
 
+		var self = this;
+
 		Cocoon.InApp.setValidationHandler(function(receipt, productId, completion){
 
-			this.log("Validation needed for " + receipt);
+			self.log("Validation needed for " + receipt);
 			callback.call( context, receipt, productId, completion );
-
+			
 		});
 
 	},
@@ -458,12 +458,11 @@ Kiwi.Plugins.InAppPurchase.InAppPurchase.prototype = {
 				self.onPurchaseStarted.dispatch( productId );
 			},
 			error: function(productId, error) {
-				console.log("purchase failed " + productId + " error: " + JSON.stringify(error));
-				self.log("Purchase failed: " + productId + " " + error );
+				self.log("Purchase failed: " + productId + (typeof error !== "undefined") ? " " + JSON.stringify( error ) : "" );
 				self.onPurchaseFailed.dispatch(error, productId);
 			},
 			complete: function(purchase) {
-				self.log("Purchase completed: " + purchase.producyId );
+				self.log("Purchase completed: " + purchase.productId );
 				self.onPurchaseComplete.dispatch(purchase);
 			}
 		});
